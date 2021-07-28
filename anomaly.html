@@ -3,9 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Azure Cognitive Services Kitchen Sink Demo</title>
+    <title>Azure Cognitive Services - Anomaly Detection</title>
     <link rel="stylesheet" href="/res/css/bulma.min.css">
-    <link rel="stylesheet" href="/res/css/prism.css">
   </head>
   <body>
   <section class="main-content columns is-fullheight">
@@ -88,16 +87,12 @@
               <div id="message-text" class="message-body">
               </div>
             </article>
-        </div>
-        <div class="section">
-          <pre
-            class="language-python"
-            data-jsonp="https://api.github.com/repos/tonybaloney/cognitive-kitchen-sink/api/AnomalyDetection/__init__.py">
-            Source code.
-          </pre>
+            <h4>See the <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/AnomalyDetection/__init__.py">Source Code</a></h4>
         </div>
             <script>
               function verify() {
+                document.getElementById("message-box").style.display = 'none';
+
                 var height_of_koala = parseInt(document.getElementById("height_of_koala").value);
                 var height_of_tree = parseInt(document.getElementById("height_of_tree").value);
 
@@ -121,7 +116,6 @@
                 };
               }
             </script>
-            <script src="/res/js/prism.js" type="javascript"></script>
     </div>
     </div>
   </section>
