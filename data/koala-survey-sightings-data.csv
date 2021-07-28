@@ -26,7 +26,7 @@ Koala Coast,Redland City,Bushland,Strip-transect,17/12/2010,14:10:00,201000909,2
 Koala Coast,Redland City,Bushland,Strip-transect,9/12/2010,12:55:00,201001105,2010,20,11,ACMA Commonwealth Land,5,1,N/A,N/A,A,1,0,0,F,N,,519679,6956916,E. siderophloia,16,21,43,8,55,5
 Koala Coast,Redland City,Bushland,Strip-transect,9/12/2010,13:10:00,201001105,2010,20,11,ACMA Commonwealth Land,5,2,N/A,N/A,A,1,0,0,M,C,,519640,6956948,E. tereticornis,10,17,35.5,10,60,5
 Koala Coast,Redland City,Bushland,Strip-transect,9/12/2010,16:10:00,201001111,2010,20,11,ACMA Commonwealth Land,11,1,N/A,N/A,A,1,0,0,F,T,,519444,6957382,Angophara woodsiana,8,10,25,4,55,11
-Koala Coast,Redland City,Bushland,Strip-transect,17/12/2010,9:30:00,201001113,2010,20,11,ACMA Commonwealth Land,13,1,N/A,N/A,A,1,0,0,F,N,D2 W109,520360,6957276,L. suaveolens,8,12,26,5,55,13
+Koala Coast,Redland City,Bushland,Strip-transect,17/12/2010,09:30:00,201001113,2010,20,11,ACMA Commonwealth Land,13,1,N/A,N/A,A,1,0,0,F,N,D2 W109,520360,6957276,L. suaveolens,8,12,26,5,55,13
 Koala Coast,Brisbane City,Bushland,Strip-transect,25/11/2010,10:00:00,201001304,2010,20,13,Burbank,4,1,N/A,N/A,A,1,0,0,F,C,D2 W070,516753,6949644,E. propinqua,9,14,23,4,40,4
 Koala Coast,Brisbane City,Bushland,Strip-transect,25/11/2010,10:00:00,201001304,2010,20,13,Burbank,4,2,N/A,N/A,A,1,0,0,F,H,D2 W071,516723,6949686,L. confertus,5,8,8.5,4,45,4
 Koala Coast,Brisbane City,Bushland,Strip-transect,25/11/2010,10:32:00,201001304,2010,20,13,Burbank,4,3,N/A,N/A,A,1,0,0,M,H,D2 W072,516824,6949612,E. propinqua,18,22,42,10,50,4
@@ -113,7 +113,7 @@ Koala Coast,Redland City,Urban,All-of-area,28/11/2010,12:15:00,201003500,2010,20
 Koala Coast,Redland City,Urban,All-of-area,28/11/2010,12:49:00,201003500,2010,20,35,Ormiston,0,8,N/A,N/A,A,1,0,0,F,T,,525344,6958802,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,28/11/2010,12:59:00,201003500,2010,20,35,Ormiston,0,9,N/A,N/A,A,1,0,0,M,C,,525520,6958807,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,28/11/2010,15:25:00,201003500,2010,20,35,Ormiston,0,10,N/A,N/A,A,1,0,0,M,N,,525609,6958296,Cinnamomum camphora,,,,,,
-Koala Coast,Redland City,Urban,All-of-area,28/11/2010,,201003500,2010,20,35,Ormiston,0,11,N/A,N/A,A,1,0,0,M,H,,,,E. siderophloia,,,,,,
+Koala Coast,Redland City,Urban,All-of-area,28/11/2010,00:00:00,201003500,2010,20,35,Ormiston,0,11,N/A,N/A,A,1,0,0,M,H,,,,E. siderophloia,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,28/11/2010,16:25:00,201003500,2010,20,35,Ormiston,0,12,N/A,N/A,A,1,0,0,F,N,,525051,6958437,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,28/11/2010,16:30:00,201003500,2010,20,35,Ormiston,0,13,N/A,N/A,A*,1,0,0,F,N,,525030,6958428,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,28/11/2010,16:30:00,201003500,2010,20,35,Ormiston,0,14,N/A,N/A,J*,0,0,1,M,N,,525030,6958428,E. tereticornis,,,,,,
@@ -143,8 +143,8 @@ Koala Coast,Redland City,Bushland,Strip-transect,13/09/2011,15:45:00,201100315,2
 Koala Coast,Brisbane City,Bushland,Strip-transect,20/09/2011,9:45:00,201101301,2011,21,13,Burbank,1,1,N/A,N/A,A,1,0,0,F,T,D2 W862,517421,6949304,E. propinqua,15,21,37.7,7,80,1
 Koala Coast,Brisbane City,Bushland,Strip-transect,20/09/2011,12:15:00,201101303,2011,21,13,Burbank,3,1,N/A,N/A,A,1,0,0,M,N,D2 W863,517385,6949595,E. microcorys,9,13,21.5,4,50,3
 Koala Coast,Brisbane City,Bushland,Strip-transect,20/09/2011,13:30:00,201101304,2011,21,13,Burbank,4,1,N/A,N/A,A,1,0,0,M,S,D2 W864,517624,6949764,E. resinifera,13,19,27.5,8,70,4
-Koala Coast,Brisbane City,Bushland,Strip-transect,21/09/2011,9:55:00,201101305,2011,21,13,Burbank,5,1,N/A,N/A,A*,1,0,0,F,T,D2 W865,517633,6949909,E. microcorys,18,20,26,5,55,5
-Koala Coast,Brisbane City,Bushland,Strip-transect,21/09/2011,9:55:00,201101305,2011,21,13,Burbank,5,2,N/A,N/A,J*,0,0,1,U,U,D2 W865,517633,6949909,E. microcorys,18,20,26,5,55,5
+Koala Coast,Brisbane City,Bushland,Strip-transect,21/09/2011,09:55:00,201101305,2011,21,13,Burbank,5,1,N/A,N/A,A*,1,0,0,F,T,D2 W865,517633,6949909,E. microcorys,18,20,26,5,55,5
+Koala Coast,Brisbane City,Bushland,Strip-transect,21/09/2011,09:55:00,201101305,2011,21,13,Burbank,5,2,N/A,N/A,J*,0,0,1,U,U,D2 W865,517633,6949909,E. microcorys,18,20,26,5,55,5
 Koala Coast,Brisbane City,Bushland,Strip-transect,21/09/2011,11:50:00,201101306,2011,21,13,Burbank,6,1,N/A,N/A,A,1,0,0,F,S,D2 W866,517309,6950195,E. carnea,12,17,41.3,9,40,6
 Koala Coast,Brisbane City,Bushland,Strip-transect,21/09/2011,15:35:00,201101307,2011,21,13,Burbank,7,1,N/A,N/A,A,1,0,0,F,N,D2 W867,517818,6950186,L. confertus,17,19,44.5,10,80,7
 Koala Coast,Brisbane City,Bushland,Strip-transect,23/09/2011,17:00:00,201101308,2011,21,13,Burbank,8,1,N/A,N/A,A,1,0,0,U,C,D1 W1388,517276,6950533,E. microcorys,16,21,26/40.1,11,45,8
@@ -328,10 +328,10 @@ Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,22/11/2011,12:56:00,2011
 Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,22/11/2011,15:46:00,201131503,2011,21,315,Rocksberg,3,1,25.1,N,A,1,0,0,M,T,D1 W1561,485438,7001829,C. intermedia,11,13,25.3,9,40,3
 Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,22/11/2011,16:04:00,201131503,2011,21,315,Rocksberg,3,2,4.25,N,A,1,0,0,F,T,D1 W1562,485372,7001810,E. moluccana,21,26,35.6,9,40,3
 Caboolture/Redcliffe,Moreton Bay,Urban,All-of-area,27/11/2011,10:00:00,201132200,2011,21,322,Narangba,0,1,N/A,N/A,A,1,0,0,M,T,,494075,6992654,E. carnea,,,,,,
-Caboolture/Redcliffe,Moreton Bay,Urban,All-of-area,27/11/2011,,201132200,2011,21,322,Narangba,0,2,N/A,N/A,A,1,0,0,F,N,,493890,6992498,Malaleuca quinquenervia,,,,,,
+Caboolture/Redcliffe,Moreton Bay,Urban,All-of-area,27/11/2011,00:00:00,201132200,2011,21,322,Narangba,0,2,N/A,N/A,A,1,0,0,F,N,,493890,6992498,Malaleuca quinquenervia,,,,,,
 Caboolture/Redcliffe,Moreton Bay,Urban,All-of-area,4/12/2011,17:30:00,201132400,2011,21,324,Burpengary,0,1,N/A,N/A,J,0,0,1,F,N,,498204,6997386,E. tereticornis,,,,,,
 Caboolture/Redcliffe,Moreton Bay,Urban,All-of-area,4/12/2011,16:45:00,201132400,2011,21,324,Burpengary,0,2,N/A,N/A,A,1,0,0,F,N,,498756,6997737,E. tereticornis,,,,,,
-Caboolture/Redcliffe,Moreton Bay,Urban,All-of-area,4/12/2011,,201132400,2011,21,324,Burpengary,0,3,N/A,N/A,A,1,0,0,U,U,,499611,6997822,E. tereticornis,,,,,,
+Caboolture/Redcliffe,Moreton Bay,Urban,All-of-area,4/12/2011,00:00:00,201132400,2011,21,324,Burpengary,0,3,N/A,N/A,A,1,0,0,U,U,,499611,6997822,E. tereticornis,,,,,,
 Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,11/10/2011,10:13:00,201135001,2011,21,350,Chelsea St Reserve,1,1,,,A,1,0,0,F,T,D2 W883,506959,6989033,E. siderophloia,19,21,68.6,8,55,1
 Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,11/10/2011,10:30:00,201135001,2011,21,350,Chelsea St Reserve,1,2,,,A,1,0,0,M,N,D2 W884,506915,6988883,C. intermedia,13,16,32.9/13.2,7,70,1
 Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,11/10/2011,10:45:00,201135001,2011,21,350,Chelsea St Reserve,1,3,,,A*,1,0,0,F,N,D2 W885,506933,6988740,E. tereticornis,17,22,48.8,11,30,1
@@ -348,7 +348,7 @@ Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,11/10/2011,14:00:00,2011
 Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,11/10/2011,15:20:00,201135005,2011,21,350,Chelsea St Reserve,5,1,,,A*,1,0,0,F,N,D1 W898,506673,6988926,E. tereticornis,14,18,30.2,7,15,5
 Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,11/10/2011,15:20:00,201135005,2011,21,350,Chelsea St Reserve,5,2,,,J*,0,0,1,U,N,D1 W898,506673,6988926,E. tereticornis,14,18,30.2,7,15,5
 Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,11/10/2011,15:57:00,201135006,2011,21,350,Chelsea St Reserve,6,1,,,S,0,1,0,M,N,D1 W900,506539,6988685,E. tereticornis,13,23,62.8,12,55,6
-Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,13/10/2011,9:58:00,201135101,2011,21,351,Hercules Rd Environmental Reserve,1,1,,,S,0,1,0,U,N,D1 W1424,507729,6988419,E. tereticornis,16,19,33.7,9,35,1
+Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,13/10/2011,09:58:00,201135101,2011,21,351,Hercules Rd Environmental Reserve,1,1,,,S,0,1,0,U,N,D1 W1424,507729,6988419,E. tereticornis,16,19,33.7,9,35,1
 Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,13/10/2011,10:07:00,201135101,2011,21,351,Hercules Rd Environmental Reserve,1,2,,,S,0,1,0,U,N,D1 W1425,507732,6988429,E. tereticornis,20,21,34,8,40,1
 Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,13/10/2011,10:18:00,201135101,2011,21,351,Hercules Rd Environmental Reserve,1,3,,,A,1,0,0,F,N,D1 W1426,507734,6988456,E. siderophloia,21,22,40.1,12,50,1
 Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,13/10/2011,12:10:00,201135102,2011,21,351,Hercules Rd Environmental Reserve,2,1,,,A,1,0,0,M,N,D1 W1429,507606,6988430,E. tereticornis,10,16,50.1,12,65,2
@@ -356,9 +356,9 @@ Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,13/10/2011,12:35:00,2011
 Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,13/10/2011,12:40:00,201135104,2011,21,351,Hercules Rd Environmental Reserve,4,1,,,A*,1,0,0,F,N,D1 W1431,507567,6988558,E. tereticornis,10,15,33.5,8,35,4
 Caboolture/Redcliffe,Moreton Bay,Bushland,Line-transect,13/10/2011,12:40:00,201135104,2011,21,351,Hercules Rd Environmental Reserve,4,2,,,J*,0,0,1,U,N,D1 W1431,507567,6988558,E. tereticornis,10,15,33.5,8,35,4
 Caboolture/Redcliffe,Moreton Bay,Urban,All-of-area,13/11/2011,12:50:00,201135300,2011,21,353,Kippa-Ring,0,1,N/A,N/A,A,1,0,0,F,T/C,,508395,6989154,Grevillea robusta,,,,,,
-Caboolture/Redcliffe,Moreton Bay,Urban,All-of-area,6/03/2012,9:50:00,201135300,2011,21,353,Kippa-Ring,0,2,N/A,N/A,A,1,0,0,M,C,D1 W1816,508340,6989145,E. tereticornis,,,,,,
+Caboolture/Redcliffe,Moreton Bay,Urban,All-of-area,6/03/2012,09:50:00,201135300,2011,21,353,Kippa-Ring,0,2,N/A,N/A,A,1,0,0,M,C,D1 W1816,508340,6989145,E. tereticornis,,,,,,
 Caboolture/Redcliffe,Moreton Bay,Urban,All-of-area,6/03/2012,10:10:00,201135300,2011,21,353,Kippa-Ring,0,3,N/A,N/A,A,1,0,0,F,N,D1 W1817,508414,6987134,C. intermedia,,,,,,
-Koala Coast,Logan City,Bushland,Strip-transect,23/10/2012,9:44:00,201200103,2012,22,1,Daisy Hill ,3,1,N/A,N/A,A,1,0,0,M,N,D2 W307,516163,6943583,E. maculata (which is now C. citriodora),11,20,35.7,6,60,3
+Koala Coast,Logan City,Bushland,Strip-transect,23/10/2012,09:44:00,201200103,2012,22,1,Daisy Hill ,3,1,N/A,N/A,A,1,0,0,M,N,D2 W307,516163,6943583,E. maculata (which is now C. citriodora),11,20,35.7,6,60,3
 Koala Coast,Logan City,Bushland,Strip-transect,23/10/2012,11:55:00,201200104,2012,22,1,Daisy Hill ,4,1,N/A,N/A,A,1,0,0,M,N,D2 W823,517093,6943625,L. suaveolens,4,7,8.5,3,10,4
 Koala Coast,Logan City,Bushland,Strip-transect,23/10/2012,12:35:00,201200104,2012,22,1,Daisy Hill ,4,2,N/A,N/A,A*,1,0,0,F,N,D2 W311,516483,6943736,E. tindaliae,16,19,54.2,8,55,4
 Koala Coast,Logan City,Bushland,Strip-transect,23/10/2012,12:35:00,201200104,2012,22,1,Daisy Hill ,4,3,N/A,N/A,J*,0,0,1,U,N,D2 W311,516483,6943736,E. tindaliae,16,19,54.2,8,55,4
@@ -367,8 +367,8 @@ Koala Coast,Logan City,Bushland,Strip-transect,18/10/2012,15:30:00,201200113.1,2
 Koala Coast,Redland City,Bushland,Strip-transect,30/11/2012,11:30:00,201200206,2012,22,2,Point Halloran,6,1,N/A,N/A,A,1,0,0,U,T,D2 W707,529101,6950470,E. tereticornis,15,18,53.7,11,40,6
 Koala Coast,Redland City,Bushland,Strip-transect,30/11/2012,11:55:00,201200207,2012,22,2,Point Halloran,7,1,N/A,N/A,A,1,0,0,F,N,D2 W708,529031,6950410,Casuarina glauca,9,14,30.3,5,60,7
 Koala Coast,Redland City,Bushland,Strip-transect,24/10/2012,13:30:00,201200309,2012,22,3,Gravel Reserve,9,1,N/A,N/A,A,1,0,0,F,N,D2 W340,521100,6953766,Acacia concurrens,4,8,19.2/34.0,8,15,9
-Koala Coast,Redland City,Bushland,Strip-transect,9/11/2012,9:20:00,201200401,2012,22,4,McDonald McMillan,1,1,N/A,N/A,A,1,0,0,F,N,D1 W940,523212,6955665,E. racemosa,14,17,27.8,6,35,1
-Koala Coast,Brisbane City,Bushland,Strip-transect,7/09/2012,9:45:00,201200502,2012,22,5,JC Trotter,2,1,N/A,N/A,A*,1,0,0,F,N,D2 W889,516538,6952948,E. racemosa,6,10,27,5,45,2
+Koala Coast,Redland City,Bushland,Strip-transect,9/11/2012,09:20:00,201200401,2012,22,4,McDonald McMillan,1,1,N/A,N/A,A,1,0,0,F,N,D1 W940,523212,6955665,E. racemosa,14,17,27.8,6,35,1
+Koala Coast,Brisbane City,Bushland,Strip-transect,7/09/2012,09:45:00,201200502,2012,22,5,JC Trotter,2,1,N/A,N/A,A*,1,0,0,F,N,D2 W889,516538,6952948,E. racemosa,6,10,27,5,45,2
 Koala Coast,Brisbane City,Bushland,Strip-transect,7/09/2012,11:35:00,201200508,2012,22,5,JC Trotter,8,1,N/A,N/A,S,0,1,0,F,N,D2 W900,516662,6952548,Allocasuarina littoralis,7,9,9.1,3,10,8
 Koala Coast,Brisbane City,Bushland,Strip-transect,11/09/2012,11:39:00,201200514,2012,22,5,JC Trotter,14,1,N/A,N/A,A,1,0,0,M,N,D2 W918,516516,6952120,E. resinifera,11,13,29.3,4,70,14
 Koala Coast,Brisbane City,Bushland,Strip-transect,11/09/2012,12:25:00,201200516,2012,22,5,JC Trotter,16,1,N/A,N/A,A,1,0,0,F,N,D2 W923,516540,6951996,E. tindaliae,17,19,65/26.7,15,5,16
@@ -380,10 +380,10 @@ Koala Coast,Redland City,Bushland,Strip-transect,25/09/2012,10:50:00,201200801,2
 Koala Coast,Redland City,Bushland,Strip-transect,26/09/2012,10:13:00,201200803,2012,22,8,Karingal,3,1,N/A,N/A,A,1,0,0,M,C,D1 W691,521402,6946784,E. crebra,16,20,42.5,9,50,3
 Koala Coast,Redland City,Bushland,Strip-transect,26/09/2012,11:00:00,201200803,2012,22,8,Karingal,3,2,N/A,N/A,A,1,0,0,M,T,D2 W043,521131,6946850,E. resinifera,17,19,26.5,5,65,3
 Koala Coast,Redland City,Bushland,Strip-transect,26/09/2012,15:15:00,201200805,2012,22,8,Karingal,5,1,N/A,N/A,A,1,0,0,M,S,D2 W050,521486,6946427,E. tindaliae,15,19,43.6,11,65,5
-Koala Coast,Redland City,Bushland,Strip-transect,14/11/2012,9:20:00,201200905,2012,22,9,Venman National Park,5,1,N/A,N/A,A,1,0,0,U,T,D1 W947,520230,6943920,E. microcorys,8,25,54.8,12,50,5
+Koala Coast,Redland City,Bushland,Strip-transect,14/11/2012,09:20:00,201200905,2012,22,9,Venman National Park,5,1,N/A,N/A,A,1,0,0,U,T,D1 W947,520230,6943920,E. microcorys,8,25,54.8,12,50,5
 Koala Coast,Redland City,Bushland,Strip-transect,15/11/2012,12:00:00,201200908,2012,22,9,Venman National Park,8,1,N/A,N/A,A,1,0,0,M,C,D2 W614,519727,6943270,L. confertus,6,13,22,5,25,8
-Koala Coast,Redland City,Bushland,Strip-transect,4/12/2012,9:10:00,201200909,2012,22,9,Venman National Park,9,1,N/A,N/A,A,1,0,0,F,N,D1 W003,520541,6942871,E. microcorys,12,17,24.6,6,40,9
-Koala Coast,Redland City,Bushland,Strip-transect,4/12/2012,9:50:00,201200909,2012,22,9,Venman National Park,9,2,N/A,N/A,A,1,0,0,F,T,D2 W714,520045,6942972,C. intermedia,11,17,40.2/43.7,12,45,9
+Koala Coast,Redland City,Bushland,Strip-transect,4/12/2012,09:10:00,201200909,2012,22,9,Venman National Park,9,1,N/A,N/A,A,1,0,0,F,N,D1 W003,520541,6942871,E. microcorys,12,17,24.6,6,40,9
+Koala Coast,Redland City,Bushland,Strip-transect,4/12/2012,09:50:00,201200909,2012,22,9,Venman National Park,9,2,N/A,N/A,A,1,0,0,F,T,D2 W714,520045,6942972,C. intermedia,11,17,40.2/43.7,12,45,9
 Koala Coast,Redland City,Bushland,Strip-transect,27/09/2012,13:50:00,201201106.1,2012,22,11,AMCA Commonwealth Land,6.1,1,N/A,N/A,A,1,0,0,M,U,D2 W081,519812,6956957,E. tereticornis,22,23,34.8,5,60,6A
 Koala Coast,Redland City,Bushland,Strip-transect,28/09/2012,12:26:00,201201115,2012,22,11,AMCA Commonwealth Land,15,1,N/A,N/A,A,1,0,0,M,N,D2 W112,520438,6957536,Allocasuarina littoralis,9,11,20.9,4,40,15
 Koala Coast,Redland City,Bushland,Strip-transect,28/09/2012,13:10:00,201201115,2012,22,11,AMCA Commonwealth Land,15,2,N/A,N/A,A,1,0,0,F,N,D2 W113,519686,6957663,Malaleuca quinquenervia,7,10,14.8,2,75,15
@@ -391,7 +391,7 @@ Koala Coast,Brisbane City,Bushland,Strip-transect,4/10/2012,12:50:00,201201305,2
 Koala Coast,Brisbane City,Bushland,Strip-transect,5/10/2012,12:00:00,201201307,2012,22,13,Burbank,7,1,N/A,N/A,A,1,0,0,M,N,D2 W178,517829,6950165,E. microcorys,20,30,52.2,14,65,7
 Koala Coast,Brisbane City,Bushland,Strip-transect,5/10/2012,12:15:00,201201307,2012,22,13,Burbank,7,2,N/A,N/A,A,1,0,0,F,T,D2 W179,517794,6950220,E. propinqua,15,18,20.2,4,25,7
 Koala Coast,Brisbane City,Bushland,Strip-transect,5/10/2012,13:11:00,201201307,2012,22,13,Burbank,7,3,N/A,N/A,A,1,0,0,F,S,D2 W181,517262,6950293,E. microcorys,10,15,20.7,6,50,7
-Koala Coast,Brisbane City,Bushland,Strip-transect,9/10/2012,9:31:00,201201308,2012,22,13,Burbank,8,1,N/A,N/A,A,1,0,0,M,N,D2 W185,517186,6950509,E. siderophloia,15,18,37.7,9,45,8
+Koala Coast,Brisbane City,Bushland,Strip-transect,9/10/2012,09:31:00,201201308,2012,22,13,Burbank,8,1,N/A,N/A,A,1,0,0,M,N,D2 W185,517186,6950509,E. siderophloia,15,18,37.7,9,45,8
 Koala Coast,Brisbane City,Bushland,Strip-transect,9/10/2012,13:15:00,201201310,2012,22,13,Burbank,10,1,N/A,N/A,A,1,0,0,F,N,D2 W197,517802,6950774,C. intermedia,13,14,29,6,65,10
 Koala Coast,Redland City,Bushland,Strip-transect,26/10/2012,12:11:00,201201405,2012,22,14,Sewage Works,5,1,N/A,N/A,S,0,1,0,F,N,D2 W395,523426,6954069,E. racemosa,13,17,,5,35,5
 Koala Coast,Brisbane City,Bushland,Strip-transect,14/09/2012,14:00:00,201201603.1,2012,22,16,Tingalpa Road,3.1,1,N/A,N/A,A*,1,0,0,F,T,D1 W633,518126,6960376,E. siderophloia,12,14,28.2,5,30,3A
@@ -417,8 +417,8 @@ Koala Coast,Redland City,Urban,All-of-area,23/09/2012,9:45:00,201202900,2012,22,
 Koala Coast,Redland City,Urban,All-of-area,23/09/2012,10:10:00,201202900,2012,22,29,Thornside,0,3,N/A,N/A,A,1,0,0,M,N,D1 W679,520158,6959871,Alphitonia excelsa,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,23/09/2012,11:43:00,201202900,2012,22,29,Thornside,0,4,N/A,N/A,A,1,0,0,F,C,D1 W680,519997,6959914,Malaleuca quinquenervia,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,21/10/2012,10:15:00,201203000,2012,22,30,Capalaba,0,1,N/A,N/A,A,1,0,0,U,N,D1 W302,520817,6955809,E. maculata (which is now C. citriodora),,,,,,
-Koala Coast,Redland City,Urban,All-of-area,28/10/2012,9:06:00,201203100,2012,22,31,Cleveland,0,1,N/A,N/A,A,1,0,0,M,N,D1 W855,526607,6954981,E. tereticornis,,,,,,
-Koala Coast,Redland City,Urban,All-of-area,28/10/2012,9:13:00,201203100,2012,22,31,Cleveland,0,2,N/A,N/A,S,0,1,0,U,N,D1 W856,526608,6954967,E. tereticornis,,,,,,
+Koala Coast,Redland City,Urban,All-of-area,28/10/2012,09:06:00,201203100,2012,22,31,Cleveland,0,1,N/A,N/A,A,1,0,0,M,N,D1 W855,526607,6954981,E. tereticornis,,,,,,
+Koala Coast,Redland City,Urban,All-of-area,28/10/2012,09:13:00,201203100,2012,22,31,Cleveland,0,2,N/A,N/A,S,0,1,0,U,N,D1 W856,526608,6954967,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,28/10/2012,9:30:00,201203100,2012,22,31,Cleveland,0,3,N/A,N/A,A,1,0,0,M,N,D1 W857,526778,6954969,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,28/10/2012,10:00:00,201203100,2012,22,31,Cleveland,0,4,N/A,N/A,A*,1,0,0,F,N,D1 W858,526865,6954954,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,28/10/2012,10:00:00,201203100,2012,22,31,Cleveland,0,5,N/A,N/A,J*,0,0,1,U,N,D1 W858,526865,6954954,E. tereticornis,,,,,,
@@ -431,15 +431,15 @@ Koala Coast,Redland City,Urban,All-of-area,28/10/2012,11:33:00,201203100,2012,22
 Koala Coast,Redland City,Urban,All-of-area,28/10/2012,12:22:00,201203100,2012,22,31,Cleveland,0,12,N/A,N/A,A,1,0,0,F,N,,526948,6953437,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,28/10/2012,13:53:00,201203100,2012,22,31,Cleveland,0,13,N/A,N/A,A*,1,0,0,F,N,,526763,6953728,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,28/10/2012,13:53:00,201203100,2012,22,31,Cleveland,0,14,N/A,N/A,J*,0,0,1,U,N,,526763,6953728,E. tereticornis,,,,,,
-Koala Coast,Redland City,Urban,All-of-area,28/10/2012,9:50:00,201203100,2012,22,31,Cleveland,0,15,N/A,N/A,A,1,0,0,M,N,D2 W404,527814,6954775,E. tereticornis,,,,,,
+Koala Coast,Redland City,Urban,All-of-area,28/10/2012,09:50:00,201203100,2012,22,31,Cleveland,0,15,N/A,N/A,A,1,0,0,M,N,D2 W404,527814,6954775,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,28/10/2012,10:15:00,201203100,2012,22,31,Cleveland,0,16,N/A,N/A,A,1,0,0,F,N,D2 W405,527792,6954661,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,28/10/2012,10:25:00,201203100,2012,22,31,Cleveland,0,17,N/A,N/A,A,1,0,0,F,U,D2 W406,527804,6954715,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,6/12/2012,10:55:00,201203200,2012,22,32,TAFE,0,1,N/A,N/A,A,1,0,0,F,N,D1 W018,521197,6955285,Malaleuca quinquenervia,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,6/12/2012,13:25:00,201203200,2012,22,32,TAFE,0,2,N/A,N/A,A,1,0,0,F,N,D1 W019,520775,6955198,C. maculata,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,6/12/2012,10:30:00,201203200,2012,22,32,TAFE,0,3,N/A,N/A,A,1,0,0,M,N,D2 W729,521004,6955434,E. racemosa,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,6/12/2012,13:30:00,201203200,2012,22,32,TAFE,0,4,N/A,N/A,S,0,1,0,U,N,D2 W730,520727,6955287,E. tereticornis,,,,,,
-Koala Coast,Redland City,Bushland,Strip-transect,18/12/2012,8:35:00,201203302,2012,22,33,Chook Farm,2,1,N/A,N/A,A,1,0,0,F,N,D2 W804,521830,6951781,E. racemosa,20,24,55.1,10,60,2
-Koala Coast,Redland City,Bushland,Strip-transect,18/12/2012,9:52:00,201203304,2012,22,33,Chook Farm,4,1,N/A,N/A,A,1,0,0,F,C,D1 W057,521970,6951863,E. racemosa,7,13,37.3,4,20,4
+Koala Coast,Redland City,Bushland,Strip-transect,18/12/2012,08:35:00,201203302,2012,22,33,Chook Farm,2,1,N/A,N/A,A,1,0,0,F,N,D2 W804,521830,6951781,E. racemosa,20,24,55.1,10,60,2
+Koala Coast,Redland City,Bushland,Strip-transect,18/12/2012,09:52:00,201203304,2012,22,33,Chook Farm,4,1,N/A,N/A,A,1,0,0,F,C,D1 W057,521970,6951863,E. racemosa,7,13,37.3,4,20,4
 Koala Coast,Redland City,Bushland,Strip-transect,18/12/2012,11:25:00,201203305,2012,22,33,Chook Farm,5,1,N/A,N/A,A,1,0,0,F,C,D1 W058,522007,6951996,Alphitonia excelsa,7,9,9.5,4,55,5
 Koala Coast,Redland City,Bushland,Strip-transect,18/12/2012,11:45:00,201203305,2012,22,33,Chook Farm,5,2,N/A,N/A,A,1,0,0,F,N,D1 W059,522247,6951979,Alphitonia excelsa,7,12,17,6,60,5
 Koala Coast,Redland City,Bushland,Strip-transect,18/12/2012,13:35:00,201203307,2012,22,33,Chook Farm,7,1,N/A,N/A,A,1,0,0,M,T,D2 W820,522153,6952171,E. racemosa,5,15,35.7,9,10,7
@@ -447,24 +447,24 @@ Koala Coast,Redland City,Bushland,Strip-transect,18/12/2012,14:00:00,201203308,2
 Koala Coast,Redland City,Bushland,Strip-transect,18/12/2012,14:10:00,201203308,2012,22,33,Chook Farm,8,2,N/A,N/A,A,1,0,0,M,N,D2 W825,522253,6952185,E. racemosa,5,18,41.8,7,50,8
 Koala Coast,Redland City,Bushland,Strip-transect,18/12/2012,14:30:00,201203308,2012,22,33,Chook Farm,8,3,N/A,N/A,J,0,0,1,M,N,D2 W826,522018,6952209,L. suaveolens,7,11,15.5,3,75,8
 Koala Coast,Redland City,Bushland,Strip-transect,18/12/2012,14:50:00,201203308,2012,22,33,Chook Farm,8,4,N/A,N/A,A,1,0,0,M,N,D1 W060,521948,6952234,E. racemosa,18,21,49.8,15,30,8
-Koala Coast,Redland City,Bushland,Strip-transect,31/10/2012,9:55:00,201203401,2012,22,34,Clark's Shed,1,1,N/A,N/A,A,1,0,0,M,N,D1 W881,522323,6956528,E. microcorys,18,20,57.5,14,50,1
-Koala Coast,Redland City,Bushland,Strip-transect,28/11/2012,8:15:00,201203402,2012,22,34,Clark's Shed,2,1,N/A,N/A,A,1,0,0,U,T,D1 W986,518427,6953263,E. racemosa,16,18,51.6,11,45,2
+Koala Coast,Redland City,Bushland,Strip-transect,31/10/2012,09:55:00,201203401,2012,22,34,Clark's Shed,1,1,N/A,N/A,A,1,0,0,M,N,D1 W881,522323,6956528,E. microcorys,18,20,57.5,14,50,1
+Koala Coast,Redland City,Bushland,Strip-transect,28/11/2012,08:15:00,201203402,2012,22,34,Clark's Shed,2,1,N/A,N/A,A,1,0,0,U,T,D1 W986,518427,6953263,E. racemosa,16,18,51.6,11,45,2
 Koala Coast,Redland City,Bushland,Strip-transect,31/10/2012,10:57:00,201203402,2012,22,34,Clark's Shed,2,1,N/A,N/A,A,1,0,0,M,U,D1 W883,522280,6956612,E. resinifera,19,22,45.1,5,55,2
-Koala Coast,Redland City,Bushland,Strip-transect,28/11/2012,9:55:00,201203404,2012,22,34,Clark's Shed,4,1,N/A,N/A,A,1,0,0,M,T,D2 W665,518601,6953286,E. microcorys,8,14,38.7,11,65,4
+Koala Coast,Redland City,Bushland,Strip-transect,28/11/2012,09:55:00,201203404,2012,22,34,Clark's Shed,4,1,N/A,N/A,A,1,0,0,M,T,D2 W665,518601,6953286,E. microcorys,8,14,38.7,11,65,4
 Koala Coast,Redland City,Bushland,Strip-transect,28/11/2012,10:50:00,201203405,2012,22,34,Clark's Shed,5,1,N/A,N/A,A*,1,0,0,F,N,D2 W670,518629,6953155,E. racemosa,8,12,26.8,6,30,5
 Koala Coast,Redland City,Bushland,Strip-transect,28/11/2012,10:50:00,201203405,2012,22,34,Clark's Shed,5,2,N/A,N/A,J*,0,0,1,U,U ,D2 W670,518629,6953155,E. racemosa,8,12,26.8,6,30,5
-Koala Coast,Redland City,Urban,All-of-area,16/12/2012,9:20:00,201203500,2012,22,35,Ormiston,0,1,N/A,N/A,A*,1,0,0,F,N,D2 W782,525064,6958822,E. tereticornis,,,,,,
-Koala Coast,Redland City,Urban,All-of-area,16/12/2012,9:20:00,201203500,2012,22,35,Ormiston,0,2,N/A,N/A,J*,0,0,1,U,N,D2 W782,525064,6958822,E. tereticornis,,,,,,
-Koala Coast,Redland City,Urban,All-of-area,16/12/2012,9:40:00,201203500,2012,22,35,Ormiston,0,3,N/A,N/A,A,1,0,0,M,N,D2 W783,525173,6958785,E. tereticornis,,,,,,
+Koala Coast,Redland City,Urban,All-of-area,16/12/2012,09:20:00,201203500,2012,22,35,Ormiston,0,1,N/A,N/A,A*,1,0,0,F,N,D2 W782,525064,6958822,E. tereticornis,,,,,,
+Koala Coast,Redland City,Urban,All-of-area,16/12/2012,09:20:00,201203500,2012,22,35,Ormiston,0,2,N/A,N/A,J*,0,0,1,U,N,D2 W782,525064,6958822,E. tereticornis,,,,,,
+Koala Coast,Redland City,Urban,All-of-area,16/12/2012,09:40:00,201203500,2012,22,35,Ormiston,0,3,N/A,N/A,A,1,0,0,M,N,D2 W783,525173,6958785,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,16/12/2012,11:55:00,201203500,2012,22,35,Ormiston,0,4,N/A,N/A,A,1,0,0,M,N,D2 W784,525332,6958317,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,16/12/2012,12:30:00,201203500,2012,22,35,Ormiston,0,5,N/A,N/A,S,0,1,0,U,N,D2 W785,525075,6958470,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,16/12/2012,12:35:00,201203500,2012,22,35,Ormiston,0,6,N/A,N/A,A,1,0,0,U,U,D2 W786,525036,6958482,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,16/12/2012,12:50:00,201203500,2012,22,35,Ormiston,0,7,N/A,N/A,A,1,0,0,F,T,D1 W53,524997,6958452,Glochidion ferdinandi,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,16/12/2012,14:25:00,201203500,2012,22,35,Ormiston,0,8,N/A,N/A,A,1,0,0,U,U,D2 W787,525126,6957798,Ficus benjamina,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,16/12/2012,14:45:00,201203500,2012,22,35,Ormiston,0,9,N/A,N/A,A,1,0,0,M,,D2 W788,525004,6957902,E. tereticornis,,,,,,
-Koala Coast,Redland City,Urban,All-of-area,16/12/2012,,201203500,2012,22,35,Ormiston,0,10,N/A,N/A,S,0,1,0,F,N,D2 W789,525576,6956810,E. tereticornis,,,,,,
-Koala Coast,Redland City,Urban,All-of-area,16/12/2012,9:30:00,201203500,2012,22,35,Ormiston,0,11,N/A,N/A,A,1,0,0,U,N,,525544,6958217,E. tereticornis,,,,,,
-Koala Coast,Redland City,Urban,All-of-area,16/12/2012,9:55:00,201203500,2012,22,35,Ormiston,0,12,N/A,N/A,A,1,0,0,F,N,,525544,6958217,E. tereticornis,,,,,,
+Koala Coast,Redland City,Urban,All-of-area,16/12/2012,00:00:00,201203500,2012,22,35,Ormiston,0,10,N/A,N/A,S,0,1,0,F,N,D2 W789,525576,6956810,E. tereticornis,,,,,,
+Koala Coast,Redland City,Urban,All-of-area,16/12/2012,09:30:00,201203500,2012,22,35,Ormiston,0,11,N/A,N/A,A,1,0,0,U,N,,525544,6958217,E. tereticornis,,,,,,
+Koala Coast,Redland City,Urban,All-of-area,16/12/2012,09:55:00,201203500,2012,22,35,Ormiston,0,12,N/A,N/A,A,1,0,0,F,N,,525544,6958217,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,16/12/2012,10:40:00,201203500,2012,22,35,Ormiston,0,13,N/A,N/A,A,1,0,0,F,N,,525525,6958809,E. crebra,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,16/12/2012,10:45:00,201203500,2012,22,35,Ormiston,0,14,N/A,N/A,A,1,0,0,M,C,,525525,6958809,E. tereticornis,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,16/12/2012,11:50:00,201203500,2012,22,35,Ormiston,0,15,N/A,N/A,A,1,0,0,U,U,,525552,6958278,E. tereticornis,,,,,,
@@ -477,9 +477,9 @@ Koala Coast,Redland City,Urban,All-of-area,16/12/2012,16:10:00,201203500,2012,22
 Koala Coast,Redland City,Urban,All-of-area,16/12/2012,16:30:00,201203500,2012,22,35,Ormiston,0,22,N/A,N/A,A,1,0,0,U,N,,525805,6957235,L. confertus,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,16/12/2012,16:45:00,201203500,2012,22,35,Ormiston,0,23,N/A,N/A,A,1,0,0,F,C/T,,525720,6957238,E. propinqua,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,16/12/2012,16:45:00,201203500,2012,22,35,Ormiston,0,24,N/A,N/A,A,1,0,0,M,N,,525730,6957239,E. grandis,,,,,,
-Koala Coast,Redland City,Urban,All-of-area,16/12/2012,9:17:00,201203500,2012,22,35,Ormiston,0,25,N/A,N/A,A*,1,0,0,F,N,D1 W048,524872,6958677,Acacia concurrens,,,,,,
-Koala Coast,Redland City,Urban,All-of-area,16/12/2012,9:17:00,201203500,2012,22,35,Ormiston,0,26,N/A,N/A,J*,0,0,1,U,N,D1 W048,524872,6958677,Acacia concurrens,,,,,,
-Koala Coast,Redland City,Urban,All-of-area,16/12/2012,9:36:00,201203500,2012,22,35,Ormiston,0,27,N/A,N/A,A,1,0,0,M,N,D1 W049,524849,6958877,E. siderophloia,,,,,,
+Koala Coast,Redland City,Urban,All-of-area,16/12/2012,09:17:00,201203500,2012,22,35,Ormiston,0,25,N/A,N/A,A*,1,0,0,F,N,D1 W048,524872,6958677,Acacia concurrens,,,,,,
+Koala Coast,Redland City,Urban,All-of-area,16/12/2012,09:17:00,201203500,2012,22,35,Ormiston,0,26,N/A,N/A,J*,0,0,1,U,N,D1 W048,524872,6958677,Acacia concurrens,,,,,,
+Koala Coast,Redland City,Urban,All-of-area,16/12/2012,09:36:00,201203500,2012,22,35,Ormiston,0,27,N/A,N/A,A,1,0,0,M,N,D1 W049,524849,6958877,E. siderophloia,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,16/12/2012,10:13:00,201203500,2012,22,35,Ormiston,0,28,N/A,N/A,A,1,0,0,M,N,D1 W050,524844,6958601,Ficus watkinsiana,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,16/12/2012,11:36:00,201203500,2012,22,35,Ormiston,0,29,N/A,N/A,A,1,0,0,M,N,D1 W051,524945,6958366,Ficus macrophylla,,,,,,
 Koala Coast,Redland City,Urban,All-of-area,16/12/2012,12:24:00,201203500,2012,22,35,Ormiston,0,30,N/A,N/A,A,1,0,0,M,N,D1 W052,525070,6958463,E. tereticornis,,,,,,
@@ -495,7 +495,7 @@ Logan,Logan,Bushland,Strip-transect,11/04/2012,16:30:00,201240604,2012,22,406,Sp
 Logan,Logan,Bushland,Strip-transect,12/04/2012,13:10:00,201240703,2012,22,407,Nealdon Park,3,1,N/A,N/A,A,1,0,0,M,N,D2 W097,512500,6940915,E. propinqua,23,25,27.4,9,55,3
 Logan,Logan,Bushland,Strip-transect,18/04/2012,10:20:00,201240901,2012,22,409,Flesser Reserve,1,1,N/A,N/A,A,1,0,0,F,N,D2 W145,506825,6931029,E. moluccana,25,32,61.8,12,65,1
 Logan,Logan,Bushland,Strip-transect,24/04/2012,14:30:00,201241005,2012,22,410,"Tamborine Street, Jimboomba",5,1,N/A,N/A,A,1,0,0,M,N,D2 W204,504016,6922336,E. crebra,6,12,33.2,8,20,5
-Logan,Logan,Bushland,Strip-transect,15/05/2012,9:40:00,201241403,2012,22,414,Plunkett Conservation Park,3,1,N/A,N/A,A,1,0,0,M,N,D2 W291,516183,6922142,E. crebra,12,15,23.3/23.5,7,20,3
+Logan,Logan,Bushland,Strip-transect,15/05/2012,09:40:00,201241403,2012,22,414,Plunkett Conservation Park,3,1,N/A,N/A,A,1,0,0,M,N,D2 W291,516183,6922142,E. crebra,12,15,23.3/23.5,7,20,3
 Logan,Logan,Bushland,Strip-transect,16/05/2012,14:00:00,201241406,2012,22,414,Plunkett Conservation Park,6,1,N/A,N/A,A,1,0,0,F,T,D2 W308,515299,6922852,E. maculata (which is now C. citriodora),27,28,33.3,9,70,6
 Logan,Logan,Bushland,Strip-transect,17/05/2012,14:00:00,201241408,2012,22,414,Plunkett Conservation Park,8,1,N/A,N/A,A,1,0,0,M,N,D2 W319,515839,6922087,E. crebra,17,19,29,7,40,8
 Logan,Logan,Bushland,Strip-transect,30/05/2012,10:50:00,201241502,2012,22,415,Rice Road,2,1,N/A,N/A,A,1,0,0,M,T,D1 W254,492140,6923957,E. tereticornis,19,24,28.5,5,25,2
@@ -507,7 +507,7 @@ Logan,Logan,Bushland,Strip-transect,20/06/2012,14:50:00,201241705,2012,22,417,Al
 Logan,Logan,Urban,All-of-area,1/04/2012,12:30:00,201242100,2012,22,421,Highview Terrace,0,1,N/A,N/A,A,1,0,0,M,N,,514620,6943731,E. microcorys,,,,,,
 Logan,Logan,Urban,All-of-area,1/04/2012,10:45:00,201242100,2012,22,421,Highview Terrace,0,2,N/A,N/A,A,1,0,0,M,N,,514581,6943561,E. siderophloia,,,,,,
 Logan,Logan,Urban,All-of-area,1/04/2012,12:17:00,201242100,2012,22,421,Highview Terrace,0,3,N/A,N/A,S,0,1,0,F,T,,514668,6943465,Alphitonia excelsa,,,,,,
-Logan,Logan,Urban,All-of-area,27/05/2012,9:20:00,201242300,2012,22,423,Springwood,0,1,N/A,N/A,S,0,1,0,U,N,,516398,6945542,L. sp,,,,,,
+Logan,Logan,Urban,All-of-area,27/05/2012,09:20:00,201242300,2012,22,423,Springwood,0,1,N/A,N/A,S,0,1,0,U,N,,516398,6945542,L. sp,,,,,,
 Logan,Logan,Urban,All-of-area,27/05/2012,10:00:00,201242300,2012,22,423,Springwood,0,2,N/A,N/A,S,0,1,0,M,N,D2 W354,513328,6944785,L. suaveolens,,,,,,
 Logan,Logan,Urban,All-of-area,27/05/2012,10:30:00,201242300,2012,22,423,Springwood,0,3,N/A,N/A,A,1,0,0,U,N,D2 W355,513266,6944875,E. microcorys,,,,,,
 Gold Coast,Gold Coast,Bushland,Strip-transect,20/07/2012,14:00:00,201250102,2012,22,501,Springbrook NP,2,1,N/A,N/A,A*,1,0,0,F,N,D1 W386,523600,6888004,E. racemosa,17,22,33.3,7,50,2
@@ -558,19 +558,19 @@ Gold Coast,Gold Coast,Urban,All-of-area,10/03/2013,11:20:00,201252200,2012,22,52
 Gold Coast,Gold Coast,Urban,All-of-area,10/03/2013,14:06:00,201252200,2012,22,522,Helensvale,0,2,N/A,N/A,A,1,0,0,U,N,D1 W290,532106,6914160,E. crebra,,,,,,
 Gold Coast,Gold Coast,Urban,All-of-area,10/03/2013,14:30:00,201252200,2012,22,522,Helensvale,0,3,N/A,N/A,A*,1,0,0,F*,N,D1 W291,532257,6914045,E. tereticornis,,,,,,
 Gold Coast,Gold Coast,Urban,All-of-area,10/03/2013,14:30:00,201252200,2012,22,522,Helensvale,0,4,N/A,N/A,J*,0,0,1,U,N,D1 W291,532257,6914045,E. tereticornis,,,,,,
-Gold Coast,Gold Coast,Urban,All-of-area,10/03/2013,9:20:00,201252200,2012,22,522,Helensvale,0,5,N/A,N/A,A,1,0,0,F,N,D2 W419,531968,6913163,E. seeana,,,,,,
-Gold Coast,Gold Coast,Urban,All-of-area,10/03/2013,9:20:00,201252200,2012,22,522,Helensvale,0,6,N/A,N/A,S,0,1,0,U,N,D2 W419,531968,6913163,E. seeana,,,,,,
+Gold Coast,Gold Coast,Urban,All-of-area,10/03/2013,09:20:00,201252200,2012,22,522,Helensvale,0,5,N/A,N/A,A,1,0,0,F,N,D2 W419,531968,6913163,E. seeana,,,,,,
+Gold Coast,Gold Coast,Urban,All-of-area,10/03/2013,09:20:00,201252200,2012,22,522,Helensvale,0,6,N/A,N/A,S,0,1,0,U,N,D2 W419,531968,6913163,E. seeana,,,,,,
 Gold Coast,Gold Coast,Urban,All-of-area,27/11/2013,11:55:00,201252500,2012,22,525,Elanora,0,1,N/A,N/A,A,1,0,0,M,N,D1 W502 ,545168,6888371,Acacia so,,,,,,
 Gold Coast,Gold Coast,Urban,All-of-area,27/11/2013,15:05:00,201252500,2012,22,525,Elanora,0,2,N/A,N/A,A,1,0,0,F,C/T,D2 W741 ,544425,6887841,E. pilularis,,,,,,
 Gold Coast,Gold Coast,Urban,All-of-area,27/11/2013,15:15:00,201252500,2012,22,525,Elanora,0,3,N/A,N/A,A,1,0,0,M,N,D1 W503 ,545173,6888446,E. grandis,,,,,,
 Koala Coast,Redland City,Bushland,Strip-transect,27/08/2013,10:30:00,201300302,2013,23,3,Gravel Reserve,2,1,N/A,N/A,A,1,0,0,M,N,D1 W083,521455,6953450,E. racemosa,11,19,86.6,10,55,2
 Koala Coast,Brisbane City,Bushland,Strip-transect,16/12/2013,13:13:00,201301302,2013,23,13,Burbank,2,1,N/A,N/A,A,1,0,0,F,T C,D4 099,517500,6949393,L. suaveolens,5,6,15.8,3.5,45,2
-Koala Coast,Brisbane City,Bushland,Strip-transect,16/12/2013,!4.50,201301304,2013,23,13,Burbank,4,1,N/A,N/A,A*,1,0,0,F,N,D4 107 ,516920,6949831,E. crebra,11,13,28,6,20,4
+Koala Coast,Brisbane City,Bushland,Strip-transect,16/12/2013,14:50:00,201301304,2013,23,13,Burbank,4,1,N/A,N/A,A*,1,0,0,F,N,D4 107 ,516920,6949831,E. crebra,11,13,28,6,20,4
 Koala Coast,Brisbane City,Bushland,Strip-transect,16/12/2013,14:50:00,201301304,2013,23,13,Burbank,4,2,N/A,N/A,J*,0,0,1,U,N,D4 107,516920,6949831,E. carnea,7,9,16,3,30,4
 Koala Coast,Brisbane City,Bushland,Strip-transect,16/12/2013,15:10:00,201301304,2013,23,13,Burbank,4,3,N/A,N/A,A,1,0,0,F,N,D4 108,516869,6949843,E. propinqua,9,10,13.8,4,60,4
-Koala Coast,Brisbane City,Bushland,Strip-transect,18/12/2013,9:05:00,201301306,2013,23,13,Burbank,6,1,N/A,N/A,A,1,0,0,M,N,D4 120,517265,6950128,L. confertus,8,9,11.3,3,70,6
-Koala Coast,Brisbane City,Bushland,Strip-transect,18/12/2013,9:30:00,201301306,2013,23,13,Burbank,6,2,N/A,N/A,A,1,0,0,M,T,D4 121,517743,6949999,E. microcorys,7,10,10.7,3,40,6
-Koala Coast,Brisbane City,Bushland,Strip-transect,18/1220/13,9:40:00,201301306,2013,23,13,Burbank,6,3,N/A,N/A,A,1,0,0,F,N,D4 122,517829,6950066,L. suaveolens,9,11,17.3,3,50,6
+Koala Coast,Brisbane City,Bushland,Strip-transect,18/12/2013,09:05:00,201301306,2013,23,13,Burbank,6,1,N/A,N/A,A,1,0,0,M,N,D4 120,517265,6950128,L. confertus,8,9,11.3,3,70,6
+Koala Coast,Brisbane City,Bushland,Strip-transect,18/12/2013,09:30:00,201301306,2013,23,13,Burbank,6,2,N/A,N/A,A,1,0,0,M,T,D4 121,517743,6949999,E. microcorys,7,10,10.7,3,40,6
+Koala Coast,Brisbane City,Bushland,Strip-transect,18/12/2013,09:40:00,201301306,2013,23,13,Burbank,6,3,N/A,N/A,A,1,0,0,F,N,D4 122,517829,6950066,L. suaveolens,9,11,17.3,3,50,6
 Koala Coast,Brisbane City,Bushland,Strip-transect,18/12/2013,11:10:00,201301307,2013,23,13,Burbank,7,1,N/A,N/A,A,1,0,0,M,C ,D4 131,516813,6950460,E. microcorys,12,15,31.4,7,40,7
 Koala Coast,Redland City,Bushland,Strip-transect,28/08/2013,15:00:00,201302704,2013,23,27,Ney Road,4,1,N/A,N/A,A,1,0,0,M,N,D2 W183,520690,6952448,C. intermedia,8,16,32.2,11,10,4
 Koala Coast,Redland City,Bushland,Strip-transect,28/08/2013,15:50:00,201302704,2013,23,27,Ney Road,4,2,N/A,N/A,A,1,0,0,F,C,D2 W184,519996,6952323,L. confertus,4,9,11.9,4,40,4
@@ -578,7 +578,7 @@ Pine Rivers,Moreton Bay,Urban,All-of-area,15/09/2013,10:00:00,201310100,2013,23,
 Pine Rivers,Moreton Bay,Urban,All-of-area,29/09/2013,10:20:00,201310200,2013,23,102,Lawnton,0,1,N/A,N/A,A,1,0,0,U,T,D1 W412 ,496862,6982651,E. moluccana,,,,,,
 Pine Rivers,Moreton Bay,Urban,All-of-area,29/09/2013,11:00:00,201310200,2013,23,102,Lawnton,0,2,N/A,N/A,A,1,0,0,U,N,D1 W283  ,497329,6982781,E. tereticornis,,,,,,
 Pine Rivers,Moreton Bay,Urban,All-of-area,29/09/2013,12:05:00,201310200,2013,23,102,Lawnton,0,3,N/A,N/A,S,0,1,0,M,N,D1 W284 ,497108,6982365,L. suaveolens,,,,,,
-Pine Rivers,Moreton Bay,Urban,All-of-area,13/10/2013,9:50:00,201310300,2013,23,103,Strathpine,0,1,N/A,N/A,A,1,0,0,M,N,D1 W321 ,496545,6979966,,,,,,,
+Pine Rivers,Moreton Bay,Urban,All-of-area,13/10/2013,09:50:00,201310300,2013,23,103,Strathpine,0,1,N/A,N/A,A,1,0,0,M,N,D1 W321 ,496545,6979966,,,,,,,
 Pine Rivers,Moreton Bay,Urban,All-of-area,16/06/2013,10:25:00,201310500,2013,23,105,Kallangur,0,1,N/A,N/A,A,1,0,0,U,N,D2 W713,498808,6985997,E. racemosa,,,,,,
 Pine Rivers,Moreton Bay,Urban,All-of-area,16/06/2013,10:40:00,201310500,2013,23,105,Kallangur,0,2,N/A,N/A,A*,1,0,0,F,N,D2 W622,498562,6985984,E. tereticornis,,,,,,
 Pine Rivers,Moreton Bay,Urban,All-of-area,16/06/2013,10:40:00,201310500,2013,23,105,Kallangur,0,3,N/A,N/A,J*,0,0,1,U,U,D1 W622,498562,6985984,E. tereticornis,,,,,,
@@ -586,7 +586,7 @@ Pine Rivers,Moreton Bay,Urban,All-of-area,16/06/2013,10:41:00,201310500,2013,23,
 Pine Rivers,Moreton Bay,Urban,All-of-area,16/06/2013,10:41:00,201310500,2013,23,105,Kallangur,0,5,N/A,N/A,A,1,0,0,F,N,D1 W624,498564,6986023,E. microcorys,,,,,,
 Pine Rivers,Moreton Bay,Urban,All-of-area,16/06/2013,10:41:00,201310500,2013,23,105,Kallangur,0,6,N/A,N/A,A,1,0,0,F,N,D1 W624,498564,6986023,E. microcorys,,,,,,
 Pine Rivers,Moreton Bay,Urban,All-of-area,16/06/2013,11:20:00,201310500,2013,23,105,Kallangur,0,7,N/A,N/A,A,1,0,0,F,N,D1 W625,498744,6985966,E. tereticornis,,,,,,
-Pine Rivers,Moreton Bay,Urban,All-of-area,7/07/2013,9:45:00,201310600,2013,23,106,Petrie,0,1,N/A,N/A,A,1,0,0,M,C & T,D2 W137,496223,6984612,E. tereticornis,,,,,,
+Pine Rivers,Moreton Bay,Urban,All-of-area,7/07/2013,09:45:00,201310600,2013,23,106,Petrie,0,1,N/A,N/A,A,1,0,0,M,C & T,D2 W137,496223,6984612,E. tereticornis,,,,,,
 Pine Rivers,Moreton Bay,Urban,All-of-area,7/07/2013,14:45:00,201310600,2013,23,106,Petrie,0,2,N/A,N/A,A,1,0,0,M,N,D2 W140,496021,6984806,E. maculata (which is now C. citriodora),,,,,,
 Pine Rivers,Moreton Bay,Urban,All-of-area,7/07/2013,11:50:00,201310600,2013,23,106,Petrie,0,3,N/A,N/A,A,1,0,0,M,T,D1 W772,496278,6984956,E. moluccana,,,,,,
 Pine Rivers,Moreton Bay,Urban,All-of-area,7/07/2013,14:10:00,201310600,2013,23,106,Petrie,0,4,N/A,N/A,A,1,0,0,F,N,D1 W774,496179,6984782,L. confertus,,,,,,
@@ -644,7 +644,7 @@ Pine Rivers,Moreton Bay,Bushland,Line-transect,4/07/2013,12:50:00,201312503,2013
 Noosa,Noosa,Bushland,Strip-transect,27/06/2013,10:00:00,201360401,2013,23,604,Noosa National Park: Eenie Creek Road,1,1,N/A,N/A,A,1,0,0,M,N,D1 W696 ,505375,7078058,E. maculata (which is now C. citriodora),6,12,19.9/20.2,5,45,1
 Noosa,Noosa,Bushland,Strip-transect,17/07/2013,14:45:00,201360505.1,2013,23,605,Noosa National Park: Headland Section,5.1,1,N/A,N/A,A,1,0,0,M,N,D2 W220,509815,7082000,E. tereticornis,19,21,66,12,60,5
 Noosa,Noosa,Bushland,Strip-transect,24/07/2013,13:00:00,201360512,2013,23,605,Noosa National Park: Headland Section,12,1,N/A,N/A,A,1,0,0,U,T,D1 W916,509579,7081047,E. siderophloia,17,20,49.1,11,60,12
-Noosa,Noosa,Bushland,Strip-transect,27/09/2013,9:55:00,201360806,2013,23,608,Tewantin National Park: Lake MacDonald Section,6,1,N/A,N/A,A,1,0,0,U,T,D2 W403 ,493353,7082854,E. resinifera,22,28,38,6,75,6
+Noosa,Noosa,Bushland,Strip-transect,27/09/2013,09:55:00,201360806,2013,23,608,Tewantin National Park: Lake MacDonald Section,6,1,N/A,N/A,A,1,0,0,U,T,D2 W403 ,493353,7082854,E. resinifera,22,28,38,6,75,6
 Noosa,Noosa,Bushland,Strip-transect,16/10/2013,10:45:00,201360905,2013,23,609,West Cooroy State Forest,5,1,N/A,N/A,A,1,0,0,M,C,D1 W328 ,483859,7073325,On ground,0,N/A,N/A,N/A,N/A,5
 Noosa,Noosa,Bushland,Strip-transect,19/11/2013,15:20:00,201361102,2013,23,611,Symplocos Environmental Reserve,2,1,N/A,N/A,A,1,0,0,F,N,D2 W690,489684,7085851,Malaleuca quinquenervia,8,11,18.4,3,70,2
 Noosa,Noosa,Urban,All-of-area,15/09/2013,11:30:00,201362100,2013,23,621,Noosa Heads,0,1,N/A,N/A,A,1,0,0,M,N,D1 W271,508884,7080075,Allocasuarina littoralis,,,,,,

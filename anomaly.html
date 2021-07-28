@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Azure Cognitive Services Kitchen Sink Demo</title>
+    <link rel="stylesheet" href="/res/css/bulma.min.css">
+  </head>
+  <body>
+  <section class="main-content columns is-fullheight">
+    <aside class="menu column is-2 is-narrow-mobile is-fullheight section">
+        <p class="menu-label">
+          Decision APIs
+        </p>
+        <ul class="menu-list">
+          <li><a>Anomaly Detector</a></li>
+          <li><a>Content Moderator</a></li>
+          <li><a>Personalizer</a></li>
+        </ul>
+        <p class="menu-label">
+          Language APIs
+        </p>
+        <ul class="menu-list">
+          <li><a>Language Understanding</a></li>
+          <li><a>Q&amp;A Maker</a></li>
+          <li><a>Text Analytics</a></li>
+          <li><a>Translator</a></li>
+        </ul>
+        <p class="menu-label">
+            Speech APIs
+        </p>
+        <ul class="menu-list">
+            <li><a>Speech to Text</a></li>
+            <li><a>Text to Speech</a></li>
+            <li><a>Speech Translation</a></li>
+            <li><a>Speaker Recognition</a></li>
+        </ul>
+        <p class="menu-label">
+        Vision APIs
+        </p>
+          <ul class="menu-list">
+            <li><a>Computer Vision</a></li>
+            <li><a>Custom Vision</a></li>
+            <li><a>Face API</a></li>
+          </ul>
+      </aside>
+    <div class="container column is-10">
+        <div class="section">
+            <h1 class="title">
+                Anomaly Detection
+            </h1>
+            <p>
+              This experiment a dataset of sightings of wild Koalas in Australia. This dataset captured the date and time of the sighting, along with the height the koala was at and the height of the tree (in meters).
+              Azure Cognitive Services will process the dataset and train the model, then using your input, decide if the datapoint is an anomaly.
+            </p>
+
+            <p>
+              This chart shows the percentage of the tree climbed (height of koala/height of tree) for each data point:
+
+              <figure class="image is-fullwidth">
+                <img src="/res/img/koala.png">
+              </figure>
+            </p>
+            <p>Input a test value and see what the Anomaly Detection API thinks of your data capture:</p>
+            <div class="field">
+              <label class="label">Height of Koala (from ground)</label>
+              <div class="control">
+                <input id="height_of_koala" class="input" type="height_of_koala" placeholder="0">
+              </div>
+            </div>
+            
+            <div class="field">
+              <label class="label">Height of tree</label>
+              <div class="control">
+                <input id="height_of_tree" class="input" type="height_of_tree" placeholder="10">
+              </div>
+            </div>
+
+            <div class="control">
+              <button class="button is-primary" onclick="verify()">Submit</button>
+            </div>
+
+            <article id="message-box" class="message is-primary" style="display: none;">
+              <div class="message-header">
+                <p>Result</p>
+              </div>
+              <div id="message-text" class="message-body">
+              </div>
+            </article>
+
+            <script>
+              function verify() {
+                var height_of_koala = parseInt(document.getElementById("height_of_koala").value);
+                var height_of_tree = parseInt(document.getElementById("height_of_tree").value);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open(
+                  "GET",
+                  "https://white-pebble-0101a6a10.azurestaticapps.net/api/AnomalyDetection?height_of_koala="+height_of_koala+"&height_of_tree="+height_of_tree,
+                  true
+                );
+                xhr.send();
+                xhr.onload = function () {
+                  console.log(this.status);
+
+                  document.getElementById("message-box").style.display = 'block';
+
+                  if (this.status != 200){
+                    document.getElementById("message-text").innerText = "Error with data";
+                  } else {
+                    document.getElementById("message-text").innerText = this.responseText;
+                  }
+                };
+              }
+            </script>
+
+    </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Site built by <a href="https://github.com/tonybaloney">Anthony Shaw</a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+      </p>
+    </div>
+  </footer>
+  </body>
+</html>
