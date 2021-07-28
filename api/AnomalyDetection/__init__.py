@@ -50,7 +50,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     if response.is_anomaly:
         return func.HttpResponse(
             "Anomaly",
-            status_code=200
+            status_code=400
         )
     else:
         return func.HttpResponse(

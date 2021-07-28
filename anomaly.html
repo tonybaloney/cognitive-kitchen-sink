@@ -99,10 +99,10 @@
             </div>
 
             <div class="control">
-              <button class="button is-primary" onclick="verify()">Submit</button>
+              <button id="submit-button" class="button is-primary" onclick="verify()">Submit</button>
             </div>
             <br/>
-            <article id="message-box" class="message is-primary" style="display: none;">
+            <article id="message-box" class="message" style="display: none;">
               <div class="message-header">
                 <p>Result</p>
               </div>
@@ -195,14 +195,20 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                   true
                 );
                 xhr.send();
+                document.getElementById('submit-button').classList.add('is-loading');
                 xhr.onload = function () {
-                  console.log(this.status);
-
+                  document.getElementById('submit-button').classList.remove('is-loading');
                   document.getElementById("message-box").style.display = 'block';
+                  document.getElementById("message-box").className = 'message';
 
-                  if (this.status != 200){
+                  if (this.status === 500){
+                    document.getElementById('message-box').classList.add('is-danger');
                     document.getElementById("message-text").innerText = "Error with data";
+                  } else if (this.status == 400){
+                    document.getElementById('message-box').classList.add('is-warning');
+                    document.getElementById("message-text").innerText = this.responseText;
                   } else {
+                    document.getElementById('message-box').classList.add('is-success');
                     document.getElementById("message-text").innerText = this.responseText;
                   }
                 };
