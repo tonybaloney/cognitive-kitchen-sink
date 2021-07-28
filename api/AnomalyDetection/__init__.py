@@ -23,7 +23,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             logging.exception(e)
             return func.HttpResponse(str(e), status_code=500)
 
-        df = pd.read_csv(os.path.join("../data", "koala-survey-sightings-data.csv"), encoding='utf-8', parse_dates=[['Date', 'Time']])
+        df = pd.read_csv(os.path.join("data", "koala-survey-sightings-data.csv"), encoding='utf-8', parse_dates=[['Date', 'Time']])
 
         # Drop entries with no height recorded.
         df.dropna(subset=['HeightOfKoalaInTree_m', 'HeightOfTree_m'], inplace=True)
