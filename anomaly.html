@@ -54,13 +54,30 @@
             <h1 class="title">
                 Anomaly Detection
             </h1>
-            <p>
-              This experiment uses <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/data/koala-survey-sightings-data.csv">a dataset</a> of sightings of wild Koalas in Australia. This dataset captured the date and time of the sighting, along with the height the koala was at and the height of the tree (in meters).
-              Azure Cognitive Services will process the dataset and train the model, then using your input, decide if the datapoint is an anomaly.
-            </p>
+
+            <div class="columns">
+              <div class="column">
+                <p>
+                  This experiment uses <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/data/koala-survey-sightings-data.csv">a dataset</a> of sightings of wild Koalas in Australia. This dataset captured the date and time of the sighting, along with the height of the koala from the ground (in meters) and the height of the tree (in meters).
+                </p>
+                <p>
+                  The idea for the demo is that wildlife rangers manually capture data in the field into a system. Manual data entry leads to data errors. Azure Cognitive Services Anomaly Detection can be trained on a data set, then detect anomalies across a range, or for a single value.
+                </p>
+                <p>
+                 This demo is a small, standalone application hosted on Azure Functions designed as the backend for this form. It will read the data from CSV, perform some data manipulation using pandas (not koalas) and then submit it to cognitive services as a time-series input.
+              </p>
+              <p>
+                In practice, you would train the model and save the model first, then only submit the new value instead of training the model each time. I wanted to demonstrate all the steps involved.
+              </p>
+            </div>
+              <div class="column is-one-third"><figure class="image is-4by3">
+                <img src="/res/img/jordan-whitt-EerxztHCjM8-unsplash.jpg" alt="Koala asleep in tree.">
+              </figure></div>
+            </div>
+            
 
             <p>
-              This chart shows the percentage of the tree climbed (height of koala/height of tree) for each data point:
+              This chart shows the percentage of the tree climbed (height of koala/height of tree) for each data point. Koalas spend a lot of their day asleep, which they do in between main branches. They need to be far from ground-dwelling predators, such as dingoes, so they tend to go toward the top of the tree. This also makes it easy to wake up for a snack (leaves) from the tree.
 
               <figure class="image is-fullwidth">
                 <img src="/res/img/koala.png">
@@ -68,14 +85,14 @@
             </p>
             <p>Input a test value and see what the Anomaly Detection API thinks of your data capture:</p>
             <div class="field">
-              <label class="label">Height of Koala (from ground)</label>
+              <label class="label">Height of Koala from ground (in meters)</label>
               <div class="control">
                 <input id="height_of_koala" class="input" type="height_of_koala" placeholder="0">
               </div>
             </div>
             
             <div class="field">
-              <label class="label">Height of tree</label>
+              <label class="label">Height of tree (in meters)</label>
               <div class="control">
                 <input id="height_of_tree" class="input" type="height_of_tree" placeholder="10">
               </div>
@@ -92,7 +109,10 @@
               <div id="message-text" class="message-body">
               </div>
             </article>
-
+            <p>
+              <i>Photo by <a href="https://unsplash.com/@jwwhitt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jordan Whitt</a> on <a href="https://unsplash.com/s/photos/koala?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>.</i>
+              <i>The <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/AnomalyDetection/__init__.py">Source Code</a> is open source and licensed under MIT. <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/data/koala-survey-sightings-data.csv">Data</a> licensed under CC Creative Commons 3.0</i>
+            </p>
 
        </div>
             <div class="section">
@@ -159,8 +179,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
                 
               </code></pre>
-              <h4>The <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/AnomalyDetection/__init__.py">Source Code</a> is open source and licensed under MIT. <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/data/koala-survey-sightings-data.csv">Data</a> licensed under CC Creative Commons 3.0</h4>
-            </div>
+              </div>
           </div>
             <script>
               function verify() {
