@@ -109,7 +109,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                 response += '<pre>' + t + '</pre>'
             response += '</body></html>'
             return func.HttpResponse(
-                repr(exception_details),
+                response,
                 mimetype="text/html",
                 status_code=500
             )
