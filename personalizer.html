@@ -57,23 +57,87 @@
             <div class="columns">
               <div class="column">
                 <p>
-                  This experiment uses <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/data/koala.ipynb">a dataset</a> of sightings of wild Koalas in Australia. This dataset captured the date and time of the sighting, along with the height of the koala from the ground (in meters) and the height of the tree (in meters).
+                  This experiment uses <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/data/koala.ipynb">a dataset</a> of sightings of wild Koalas in Australia. 
+                  This dataset captured the date and time of the sighting, along with the species of the tree the koala was in. Koala will spend a lot of their day sleeping and the remainder snacking on their favourite food-- gum (Eucalyptus) leaves.
                 </p>
                 <p>
-                  The idea for the demo is that wildlife rangers manually capture data in the field into a system. Manual data entry leads to data errors. Azure Cognitive Services Anomaly Detection can be trained on a data set, then detect anomalies across a range, or for a single value.
+                  The Australian department of agriculture lists 531 species of Eucalyptus in the <a href="https://www.agriculture.gov.au/abares/forestsaustralia/forest-data-maps-and-tools/data-workbooks#lists-of-forest-species-and-ecological-communities-from-australias-state-of-the-forests-report-2018">catalogue of Australian Forest Flora.</a>
                 </p>
                 <p>
-                 This demo is a small, standalone application hosted on Azure Functions designed as the backend for this form. It will read the data from CSV, perform some data manipulation using pandas (not koalas) and then submit it to cognitive services as a time-series input.
-              </p>
-              <p>
-                In practice, you would train the model and save the model first, then only submit the new value instead of training the model each time. I wanted to demonstrate all the steps involved.
-              </p>
+                  In collaboration with the <a href="https://www.anbg.gov.au/gardens/">Australian National Botanic Garden</a> and other research institutions, the Atlas of Living Australia is a huge online database of records of sightings, species lists and observational records.
+                  The Koala Sightings data was collated and a list of the species that the koala were spotted in was submitted to the ALA. This produced a new dataset, a record of the 56 species those koala sightings were in.
+                </p>
             </div>
               <div class="column is-one-third"><figure class="image is-4by3">
                 <img src="/res/img/jordan-whitt-EerxztHCjM8-unsplash.jpg" alt="Koala asleep in tree.">
               </figure></div>
             </div>
-            
+
+            <div class="columns">
+              <div class="column is-one-third"><figure class="image is-4by3">
+                <img src="/res/img/aust-veg-map.gif" alt="Australia vegetation map.">
+              </figure></div>
+              <div class="column">
+                <p>
+                  In practice, you would train the model and save the model first, then only submit the new value instead of training the model each time. I wanted to demonstrate all the steps involved.
+                </p>
+            </div>
+            </div>
+
+            <table class="table">
+              <tbody><tr>
+                <td></td>
+                <td colspan="4"><center>
+                  <p><b>Percentage foliage cover of tallest plant layer</b></p>
+                </center></td>
+              </tr>
+              <tr>
+                <td><b>Life form and height of tallest stratum</b></td>
+                <td><b>Dense<br>
+                  (70-100%)</b></td>
+                <td><b>Mid-dense<br>
+                  (30-70%)</b></td>
+                <td><b>Sparse<br>
+                  (10-30%)</b></td>
+                <td><b>Very sparse<br>
+                  (&lt;10%)</b></td>
+              </tr>
+              <tr>
+                <td><b>Trees &gt; 30 m</b></td>
+                <td>Tall closed-forest</td>
+                <td>Tall open-forest</td>
+                <td>Tall woodland</td>
+                <td>Tall open-woodland</td>
+              </tr>
+              <tr>
+                <td><b>Trees 10-30 m</b></td>
+                <td>Closed-forest</td>
+                <td>Open -forest</td>
+                <td>Woodland</td>
+                <td>Open-woodland</td>
+              </tr>
+              <tr>
+                <td><b>Trees 5-10 m</b></td>
+                <td>Low closed-forest</td>
+                <td>Low open-forest</td>
+                <td>Low woodland</td>
+                <td>Low open-woodland</td>
+              </tr>
+              <tr>
+                <td><b>Shrubs 2-8 m</b></td>
+                <td>Closed -scrub</td>
+                <td>Open-scrub</td>
+                <td>Tall shrubland</td>
+                <td>Tall open-shrubland</td>
+              </tr>
+              <tr>
+                <td><b>Shrubs 0-2 m</b></td>
+                <td>Closed -heath</td>
+                <td>Open-heath</td>
+                <td>Low shrubland</td>
+                <td>Low open-shrubland</td>
+              </tr>
+            </tbody></table>
 
             <p>
               This chart shows the percentage of the tree climbed (height of koala/height of tree) for each data point. Koalas spend a lot of their day asleep, which they do in between main branches. They need to be far from ground-dwelling predators, such as dingoes, so they tend to go toward the top of the tree. This also makes it easy to wake up for a snack (leaves) from the tree.
@@ -110,7 +174,8 @@
             </article>
             <p>
               <i>Photo by <a href="https://unsplash.com/@jwwhitt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jordan Whitt</a> on <a href="https://unsplash.com/s/photos/koala?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>.</i>
-              <i>The <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/AnomalyDetection/__init__.py">Source Code</a> is open source and licensed under MIT. <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/data/koala-survey-sightings-data.csv">Data</a> licensed under CC Creative Commons 3.0</i>
+              <i>The <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/Personalizer/__init__.py">Source Code</a> is open source and licensed under MIT. 
+                <a href="https://www.ala.org.au/terms-of-use/">Data</a> from the Atlas of Living Australia, distributed with attribution under <a href="https://creativecommons.org/licenses/by/3.0/au/deed.en">Attribution 3.0 Australia (CC BY 3.0 AU)</a>. </i>
             </p>
 
        </div>

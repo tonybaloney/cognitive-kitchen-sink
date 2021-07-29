@@ -1,0 +1,145 @@
+{
+	"class": "au.org.biodiversity.nsl.Name",
+	"_links": {
+		"permalinks": [
+			{
+				"link": "https://id.biodiversity.org.au/name/apni/223867",
+				"preferred": true,
+				"resources": 1
+			},
+			{
+				"link": "https://biodiversity.org.au/boa/name/apni/223867",
+				"preferred": false,
+				"resources": 1
+			},
+			{
+				"link": "https://id.biodiversity.org.au/223867",
+				"preferred": false,
+				"resources": 1
+			},
+			{
+				"link": "https://www.anbg.gov.au/cgi-bin/apni?taxon_id=289314",
+				"preferred": false,
+				"resources": 1
+			},
+			{
+				"link": "https://biodiversity.org.au/apni.name/289314",
+				"preferred": false,
+				"resources": 1
+			},
+			{
+				"link": "https://id.biodiversity.org.au/Corymbia K.D.Hill & L.A.S.Johnson sect. Corymbia",
+				"preferred": false,
+				"resources": 2
+			}
+		]
+	},
+	"audit": {
+		"created": {
+			"by": "KIRSTENC",
+			"at": "2009-12-21T05:36:18Z"
+		},
+		"updated": {
+			"by": "KIRSTENC",
+			"at": "2009-12-21T05:36:18Z"
+		}
+	},
+	"fullName": "Corymbia K.D.Hill & L.A.S.Johnson sect. Corymbia",
+	"fullNameHtml": "<scientific><name data-id='223867'><scientific><name data-id='119693'><element>Corymbia<\/element> <authors><author data-id='8904' title='Hill, K.D. &amp; Johnson, L.A.S.'>K.D.Hill & L.A.S.Johnson<\/author><\/authors><\/name><\/scientific> <rank data-id='54404'>sect.<\/rank> <element>Corymbia<\/element><\/name><\/scientific>",
+	"nameElement": "Corymbia",
+	"simpleName": "Corymbia sect. Corymbia",
+	"sortName": "corymbia corymbia",
+	"rank": {
+		"name": "Sectio",
+		"sortOrder": 140
+	},
+	"verbatimRank": null,
+	"type": "autonym",
+	"status": "legitimate",
+	"tags": [
+
+	],
+	"family": {
+		"class": "au.org.biodiversity.nsl.Name",
+		"_links": {
+			"permalink": {
+				"link": "https://id.biodiversity.org.au/name/apni/54484",
+				"preferred": true,
+				"resources": 1
+			}
+		},
+		"nameElement": "Myrtaceae",
+		"fullNameHtml": "<scientific><name data-id='54484'><element>Myrtaceae<\/element> <authors><author data-id='7030' title='Jussieu, A.L. de'>Juss.<\/author><\/authors><\/name><\/scientific>"
+	},
+	"parent": {
+		"class": "au.org.biodiversity.nsl.Name",
+		"_links": {
+			"permalink": {
+				"link": "https://id.biodiversity.org.au/name/apni/223865",
+				"preferred": true,
+				"resources": 1
+			}
+		},
+		"nameElement": "Corymbia",
+		"fullNameHtml": "<scientific><name data-id='223865'><scientific><name data-id='119693'><element>Corymbia<\/element> <authors><author data-id='8904' title='Hill, K.D. &amp; Johnson, L.A.S.'>K.D.Hill & L.A.S.Johnson<\/author><\/authors><\/name><\/scientific> <rank data-id='54403'>subg.<\/rank> <element>Corymbia<\/element><\/name><\/scientific>"
+	},
+	"basionym": {
+
+	},
+	"secondParent": {
+
+	},
+	"instances": [
+		{
+			"class": "au.org.biodiversity.nsl.Instance",
+			"_links": {
+				"permalink": {
+					"link": "https://id.biodiversity.org.au/instance/apni/653248",
+					"preferred": true,
+					"resources": 1
+				}
+			},
+			"instanceType": "autonym",
+			"page": "397",
+			"name": "<scientific><name data-id='223867'><scientific><name data-id='119693'><element>Corymbia<\/element> <authors><author data-id='8904' title='Hill, K.D. &amp; Johnson, L.A.S.'>K.D.Hill & L.A.S.Johnson<\/author><\/authors><\/name><\/scientific> <rank data-id='54404'>sect.<\/rank> <element>Corymbia<\/element><\/name><\/scientific>",
+			"protologue": false,
+			"citation": "Parra-O., C., Bayly, M.J., Drinnan, A., Udovicic, F. & Ladiges, P. (28 October 2009), Phylogeny, major clades and infrageneric classification of Corymbia (Myrtaceae) based on nuclear ribosomal DNA and morphology. Australian Systematic Botany 22(5)",
+			"citationHtml": "<ref data-id='48784'><ref-paper><author>Parra-O., C., Bayly, M.J., Drinnan, A., Udovicic, F. & Ladiges, P.<\/author> <year>(28 October 2009)<\/year>, <ref-title>Phylogeny, major clades and infrageneric classification of Corymbia (Myrtaceae) based on nuclear ribosomal DNA and morphology.<\/ref-title> <par-title><i>Australian Systematic Botany<\/i><\/par-title> <volume>22(5)<\/volume><\/ref-paper><\/ref>",
+			"citationAuthYear": "Parra-O., C., Bayly, M.J., Drinnan, A., Udovicic, F. & Ladiges, P., 2009"
+		}
+	],
+	"author": {
+
+	},
+	"baseAuthor": {
+
+	},
+	"exAuthor": {
+
+	},
+	"exBaseAuthor": {
+
+	},
+	"sanctioningAuthor": {
+
+	},
+	"primaryInstance": [
+		{
+			"class": "au.org.biodiversity.nsl.Instance",
+			"_links": {
+				"permalink": {
+					"link": "https://id.biodiversity.org.au/instance/apni/653248",
+					"preferred": true,
+					"resources": 1
+				}
+			},
+			"instanceType": "autonym",
+			"page": "397",
+			"name": "<scientific><name data-id='223867'><scientific><name data-id='119693'><element>Corymbia<\/element> <authors><author data-id='8904' title='Hill, K.D. &amp; Johnson, L.A.S.'>K.D.Hill & L.A.S.Johnson<\/author><\/authors><\/name><\/scientific> <rank data-id='54404'>sect.<\/rank> <element>Corymbia<\/element><\/name><\/scientific>",
+			"protologue": false,
+			"citation": "Parra-O., C., Bayly, M.J., Drinnan, A., Udovicic, F. & Ladiges, P. (28 October 2009), Phylogeny, major clades and infrageneric classification of Corymbia (Myrtaceae) based on nuclear ribosomal DNA and morphology. Australian Systematic Botany 22(5)",
+			"citationHtml": "<ref data-id='48784'><ref-paper><author>Parra-O., C., Bayly, M.J., Drinnan, A., Udovicic, F. & Ladiges, P.<\/author> <year>(28 October 2009)<\/year>, <ref-title>Phylogeny, major clades and infrageneric classification of Corymbia (Myrtaceae) based on nuclear ribosomal DNA and morphology.<\/ref-title> <par-title><i>Australian Systematic Botany<\/i><\/par-title> <volume>22(5)<\/volume><\/ref-paper><\/ref>",
+			"citationAuthYear": "Parra-O., C., Bayly, M.J., Drinnan, A., Udovicic, F. & Ladiges, P., 2009"
+		}
+	]
+}

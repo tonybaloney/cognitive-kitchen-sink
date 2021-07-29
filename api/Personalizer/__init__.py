@@ -1,59 +1,115 @@
 import logging
 import os
-from datetime import datetime
+from azure.cognitiveservices.personalizer import PersonalizerClient
+from azure.cognitiveservices.personalizer.models import RankableAction, RewardRequest, RankRequest
+from msrest.authentication import CognitiveServicesCredentials
+
+import datetime, json, os, time, uuid
 from azure.core.exceptions import HttpResponseError
-from azure.ai.anomalydetector import AnomalyDetectorClient
-from azure.ai.anomalydetector.models import DetectRequest, TimeSeriesPoint, TimeGranularity
-from azure.core.credentials import AzureKeyCredential
+
 import pandas as pd
 
 import azure.functions as func
 
 
-def main(req: func.HttpRequest) -> func.HttpResponse:
+def get_actions():
+    action1 = RankableAction(id='pasta', features=[{"taste":"salty", "spice_level":"medium"},{"nutrition_level":5,"cuisine":"italian"}])
+    action2 = RankableAction(id='ice cream', features=[{"taste":"sweet", "spice_level":"none"}, { "nutritional_level": 2 }])
+    action3 = RankableAction(id='juice', features=[{"taste":"sweet", 'spice_level':'none'}, {'nutritional_level': 5}, {'drink':True}])
+    action4 = RankableAction(id='salad', features=[{'taste':'salty', 'spice_level':'none'},{'nutritional_level': 2}])
+    return [action1, action2, action3, action4]
+
+
+def get_user_timeofday():
+    res={}
+    time_features = ["morning", "afternoon", "evening", "night"]
+    time = input("What time of day is it (enter number)? 1. morning 2. afternoon 3. evening 4. night\n")
     try:
-        client = AnomalyDetectorClient(AzureKeyCredential(os.environ["ANOMALY_DETECTOR_KEY"]), os.environ["ANOMALY_DETECTOR_ENDPOINT"])
+        ptime = int(time)
+        if(ptime<=0 or ptime>len(time_features)):
+            raise IndexError
+        res['time_of_day'] = time_features[ptime-1]
+    except (ValueError, IndexError):
+        print("Entered value is invalid. Setting feature value to", time_features[0] + ".")
+        res['time_of_day'] = time_features[0]
+    return res
 
-        try:
-            height_of_koala = int(req.params.get('height_of_koala'))
-            height_of_tree = int(req.params.get('height_of_tree'))
-            if height_of_tree == 0:
-                raise ValueError
-        except ValueError as e:
-            logging.exception(e)
-            return func.HttpResponse(str(e), status_code=500)
 
-        df = pd.read_csv(os.path.join("data", "koala-survey-sightings-data.csv"), encoding='utf-8', parse_dates=[['Date', 'Time']])
-
-        # Drop entries with no height recorded.
-        df.dropna(subset=['HeightOfKoalaInTree_m', 'HeightOfTree_m'], inplace=True)
-        # Drop entries recorded at the exact same time
-        df.drop_duplicates(subset = ["Date_Time"], inplace=True)
-        # Calculate the percentage of the tree the Koala has climbed
-        df['PercentageHeightClimbed'] = df['HeightOfKoalaInTree_m'] / df['HeightOfTree_m']
-        # Turn into a timeseries
-        series = [TimeSeriesPoint(timestamp=row[0], value=row[1]) for _, row in df[['Date_Time', 'PercentageHeightClimbed']].sort_values(by=['Date_Time']).iterrows()]
-        
-        # Add the user input
-        series.append(TimeSeriesPoint(timestamp=datetime.now(), value=height_of_koala/height_of_tree))
-        request = DetectRequest(series=series, granularity=TimeGranularity.NONE)
+def get_user_preference():
+    res = {}
+    taste_features = ['salty','sweet']
+    pref = input("What type of food would you prefer? Enter number 1.salty 2.sweet\n")
     
-        response = client.detect_last_point(request)
-    except HttpResponseError as e:
-        msg = 'Error code: {} '.format(e.error.code) + 'Error message: {}'.format(e.error.message)
-        logging.error(msg)
-        return func.HttpResponse('Error code: {} '.format(e.error.code), status_code=500)
-    except Exception as e:
-        logging.exception(e)
-        return func.HttpResponse(str(e), status_code=500)
+    try:
+        ppref = int(pref)
+        if(ppref<=0 or ppref>len(taste_features)):
+            raise IndexError
+        res['taste_preference'] = taste_features[ppref-1]
+    except (ValueError, IndexError):
+        print("Entered value is invalid. Setting feature value to", taste_features[0]+ ".")
+        res['taste_preference'] = taste_features[0]
+    return res
 
-    if response.is_anomaly:
-        return func.HttpResponse(
-            "Anomaly",
-            status_code=400
-        )
-    else:
-        return func.HttpResponse(
+
+
+
+def _main(req: func.HttpRequest) -> func.HttpResponse:
+    client = PersonalizerClient(os.environ['PERSONALIZER_ENDPOINT'], CognitiveServicesCredentials(os.environ['PERSONALIZER_KEY']))
+            
+    keep_going = True
+    while keep_going:
+
+        eventid = str(uuid.uuid4())
+
+        context = [get_user_preference(), get_user_timeofday()]
+        actions = get_actions()
+
+        rank_request = RankRequest( actions=actions, context_features=context, excluded_actions=['juice'], event_id=eventid)
+        response = client.rank(rank_request=rank_request)
+        
+        print("Personalizer service ranked the actions with the probabilities listed below:")
+        
+        rankedList = response.ranking
+        for ranked in rankedList:
+            print(ranked.id, ':',ranked.probability)
+
+        print("Personalizer thinks you would like to have", response.reward_action_id+".")
+        answer = 'y'
+
+        reward_val = "0.0"
+        if(answer.lower()=='y'):
+            reward_val = "1.0"
+        elif(answer.lower()=='n'):
+            reward_val = "0.0"
+        else:
+            print("Entered choice is invalid. Service assumes that you didn't like the recommended food choice.")
+
+        client.events.reward(event_id=eventid, value=reward_val)
+
+        keep_going = False
+    return func.HttpResponse(
             "OK",
             status_code=200
-        )
+        )    
+
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    try:
+        return _main(req)
+    except Exception:
+        import os
+        if os.getenv('DEBUG', True):
+            import sys, traceback
+            exc_type, exc_value, exc_traceback = sys.exc_info()
+            exception_details = traceback.format_exception(exc_type, exc_value,
+                                            exc_traceback)
+            return func.HttpResponse(
+                exception_details,
+                mimetype="text/plain",
+                status_code=500
+            )
+        else:
+            return func.HttpResponse(
+                "Server Error",
+                status_code=500
+            )

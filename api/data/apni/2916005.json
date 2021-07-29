@@ -1,0 +1,127 @@
+{
+	"treeElement": {
+		"class": "au.org.biodiversity.nsl.TreeElement",
+		"_links": {
+			"elementLink": "https://id.biodiversity.org.au/tree/51416870/51373956",
+			"taxonLink": "https://id.biodiversity.org.au/node/apni/2916005",
+			"parentElementLink": "https://id.biodiversity.org.au/tree/51416870/51374126",
+			"nameLink": "https://id.biodiversity.org.au/name/apni/94591",
+			"instanceLink": "https://id.biodiversity.org.au/instance/apni/613022",
+			"sourceElementLink": null
+		},
+		"tree": {
+			"class": "au.org.biodiversity.nsl.Tree",
+			"_links": {
+				"permalinks": [
+					{
+						"link": "https://id.biodiversity.org.au/tree/apni/APC",
+						"preferred": true,
+						"resources": 1
+					}
+				]
+			},
+			"audit": null,
+			"name": "APC"
+		},
+		"simpleName": "Eucalyptus carnea",
+		"namePath": "Plantae/Charophyta/Equisetopsida/Magnoliidae/Rosanae/Myrtales/Myrtaceae/Eucalyptus/carnea",
+		"treePath": "/51209397/51209398/51209399/51210622/51220099/51230354/51230544/51374126/51373956",
+		"displayHtml": "<data><scientific><name data-id='94591'><scientific><name data-id='102507'><element>Eucalyptus<\/element><\/name><\/scientific> <element>carnea<\/element> <authors><author data-id='1864' title='Baker, R.T.'>R.T.Baker<\/author><\/authors><\/name><\/scientific><name-status class=\"legitimate\">, legitimate<\/name-status> <citation><ref data-id='42942'><ref-section><author>CHAH<\/author> <year>(2006)<\/year>, <par-title><i>Australian Plant Census<\/i><\/par-title><\/ref-section><\/ref><\/citation><\/data>",
+		"sourceShard": "APNI",
+		"synonymsHtml": "<synonyms><nom><scientific><name data-id='204150'><scientific><name data-id='124576'><scientific><name data-id='102507'><element>Eucalyptus<\/element><\/name><\/scientific> <element>acmenioides<\/element><\/name><\/scientific> <rank data-id='54412'>var.<\/rank> <element>carnea<\/element> <authors><author data-id='2328' title='Maiden, J.H.'>Maiden<\/author><\/authors><\/name><\/scientific><name-status class=\"orth. var.\">, orth. var.<\/name-status> <year>(1907)<\/year> <type>nomenclatural synonym<\/type><\/nom><nom><scientific><name data-id='77784'><scientific><name data-id='77712'><scientific><name data-id='102507'><element>Eucalyptus<\/element><\/name><\/scientific> <element>acmenoides<\/element><\/name><\/scientific> <rank data-id='54412'>var.<\/rank> <element>carnea<\/element> <authors>(<base data-id='1864' title='Baker, R.T.'>R.T.Baker<\/base>) <author data-id='2328' title='Maiden, J.H.'>Maiden<\/author><\/authors><\/name><\/scientific><name-status class=\"legitimate\">, legitimate<\/name-status> <year>(1907)<\/year> <type>nomenclatural synonym<\/type><\/nom><nom><scientific><name data-id='89083'><scientific><name data-id='89062'><scientific><name data-id='102507'><element>Eucalyptus<\/element><\/name><\/scientific> <element>umbra<\/element><\/name><\/scientific> <rank data-id='54410'>subsp.<\/rank> <element>carnea<\/element> <authors>(<base data-id='1864' title='Baker, R.T.'>R.T.Baker<\/base>) <author data-id='1489' title='Johnson, L.A.S.'>L.A.S.Johnson<\/author><\/authors><\/name><\/scientific><name-status class=\"legitimate\">, legitimate<\/name-status> <year>(17 September 1962)<\/year> <type>nomenclatural synonym<\/type><\/nom><\/synonyms>",
+		"synonyms": {
+			"list": [
+				{
+					"mis": false,
+					"nom": true,
+					"syn": true,
+					"tax": false,
+					"host": "https://id.biodiversity.org.au",
+					"type": "nomenclatural synonym",
+					"year": 1962.0,
+					"cites": "Johnson, L.A.S. (17 September 1962), Studies in the taxonomy of Eucalyptus. Contributions from the New South Wales National Herbarium 3(3)",
+					"name_id": 89083.0,
+					"citesHtml": "<ref data-id='22074'><ref-paper><author>Johnson, L.A.S.<\/author> <year>(17 September 1962)<\/year>, <ref-title>Studies in the taxonomy of Eucalyptus.<\/ref-title> <par-title><i>Contributions from the New South Wales National Herbarium<\/i><\/par-title> <volume>3(3)<\/volume><\/ref-paper><\/ref>",
+					"name_link": "/name/apni/89083",
+					"cites_link": "/reference/apni/22074",
+					"instance_id": 853463.0,
+					"simple_name": "Eucalyptus umbra subsp. carnea",
+					"concept_link": "/instance/apni/455361",
+					"instance_link": "/instance/apni/853463",
+					"full_name_html": "<scientific><name data-id='89083'><scientific><name data-id='89062'><scientific><name data-id='102507'><element>Eucalyptus<\/element><\/name><\/scientific> <element>umbra<\/element><\/name><\/scientific> <rank data-id='54410'>subsp.<\/rank> <element>carnea<\/element> <authors>(<base data-id='1864' title='Baker, R.T.'>R.T.Baker<\/base>) <author data-id='1489' title='Johnson, L.A.S.'>L.A.S.Johnson<\/author><\/authors><\/name><\/scientific>"
+				},
+				{
+					"mis": false,
+					"nom": true,
+					"syn": true,
+					"tax": false,
+					"host": "https://id.biodiversity.org.au",
+					"type": "nomenclatural synonym",
+					"year": 1907.0,
+					"cites": "Maiden, J.H. (1907), A Critical Revision of the Genus Eucalyptus 1(9)",
+					"name_id": 77784.0,
+					"citesHtml": "<ref data-id='22181'><ref-section><author>Maiden, J.H.<\/author> <year>(1907)<\/year>, <par-title><i>A Critical Revision of the Genus Eucalyptus<\/i><\/par-title> <volume>1(9)<\/volume><\/ref-section><\/ref>",
+					"name_link": "/name/apni/77784",
+					"cites_link": "/reference/apni/22181",
+					"instance_id": 853461.0,
+					"simple_name": "Eucalyptus acmenoides var. carnea",
+					"concept_link": "/instance/apni/455178",
+					"instance_link": "/instance/apni/853461",
+					"full_name_html": "<scientific><name data-id='77784'><scientific><name data-id='77712'><scientific><name data-id='102507'><element>Eucalyptus<\/element><\/name><\/scientific> <element>acmenoides<\/element><\/name><\/scientific> <rank data-id='54412'>var.<\/rank> <element>carnea<\/element> <authors>(<base data-id='1864' title='Baker, R.T.'>R.T.Baker<\/base>) <author data-id='2328' title='Maiden, J.H.'>Maiden<\/author><\/authors><\/name><\/scientific>"
+				},
+				{
+					"mis": false,
+					"nom": true,
+					"syn": true,
+					"tax": false,
+					"host": "https://id.biodiversity.org.au",
+					"type": "nomenclatural synonym",
+					"year": 1907.0,
+					"cites": "Maiden, J.H. (1907), A Critical Revision of the Genus Eucalyptus 1(9)",
+					"name_id": 204150.0,
+					"citesHtml": "<ref data-id='22181'><ref-section><author>Maiden, J.H.<\/author> <year>(1907)<\/year>, <par-title><i>A Critical Revision of the Genus Eucalyptus<\/i><\/par-title> <volume>1(9)<\/volume><\/ref-section><\/ref>",
+					"name_link": "/name/apni/204150",
+					"cites_link": "/reference/apni/22181",
+					"instance_id": 853462.0,
+					"simple_name": "Eucalyptus acmenioides var. carnea",
+					"concept_link": "/instance/apni/613021",
+					"instance_link": "/instance/apni/853462",
+					"full_name_html": "<scientific><name data-id='204150'><scientific><name data-id='124576'><scientific><name data-id='102507'><element>Eucalyptus<\/element><\/name><\/scientific> <element>acmenioides<\/element><\/name><\/scientific> <rank data-id='54412'>var.<\/rank> <element>carnea<\/element> <authors><author data-id='2328' title='Maiden, J.H.'>Maiden<\/author><\/authors><\/name><\/scientific>"
+				}
+			]
+		},
+		"profile": {
+			"APC Dist.": {
+				"value": "Qld, NSW",
+				"created_at": "2007-01-15T00:00:00+11:00",
+				"created_by": "APNI-NSL MIGRATION",
+				"updated_at": "2007-01-15T00:00:00+11:00",
+				"updated_by": "APNI-NSL MIGRATION",
+				"source_link": "https://id.biodiversity.org.au/instanceNote/apni/1101041"
+			},
+			"APC Comment": {
+				"value": "Chapman, APNI: 1285 (1991) listed 'Eucalyptus triantha var. carnea Domin' based on E. carnea R.T.Baker.  This is based on a misreading of Domin's text - he was commenting that Maiden had reduced R.T.Baker's E. carnea to a variety of E. acmenoides.  Eucalyptus triantha var. carnea Domin and var. triantha are therefore phantom names.  Occasional hybrids between E. carnea and 'E. signata' (=E. racemosa) are recorded (Hill, 1999).",
+				"created_at": "2007-01-15T00:00:00+11:00",
+				"created_by": "APNI-NSL MIGRATION",
+				"updated_at": "2007-01-15T00:00:00+11:00",
+				"updated_by": "APNI-NSL MIGRATION",
+				"source_link": "https://id.biodiversity.org.au/instanceNote/apni/1101040"
+			}
+		},
+		"children": [
+			{
+				"displayHtml": "<data><scientific><name data-id='94591'><scientific><name data-id='102507'><element>Eucalyptus<\/element><\/name><\/scientific> <element>carnea<\/element> <authors><author data-id='1864' title='Baker, R.T.'>R.T.Baker<\/author><\/authors><\/name><\/scientific><name-status class=\"legitimate\">, legitimate<\/name-status> <citation><ref data-id='42942'><ref-section><author>CHAH<\/author> <year>(2006)<\/year>, <par-title><i>Australian Plant Census<\/i><\/par-title><\/ref-section><\/ref><\/citation><\/data>",
+				"elementLink": "https://id.biodiversity.org.au/tree/51416870/51373956",
+				"nameLink": "https://id.biodiversity.org.au/name/apni/94591",
+				"instanceLink": "https://id.biodiversity.org.au/instance/apni/613022",
+				"excluded": false,
+				"depth": 9,
+				"synonymsHtml": "<synonyms><nom><scientific><name data-id='204150'><scientific><name data-id='124576'><scientific><name data-id='102507'><element>Eucalyptus<\/element><\/name><\/scientific> <element>acmenioides<\/element><\/name><\/scientific> <rank data-id='54412'>var.<\/rank> <element>carnea<\/element> <authors><author data-id='2328' title='Maiden, J.H.'>Maiden<\/author><\/authors><\/name><\/scientific><name-status class=\"orth. var.\">, orth. var.<\/name-status> <year>(1907)<\/year> <type>nomenclatural synonym<\/type><\/nom><nom><scientific><name data-id='77784'><scientific><name data-id='77712'><scientific><name data-id='102507'><element>Eucalyptus<\/element><\/name><\/scientific> <element>acmenoides<\/element><\/name><\/scientific> <rank data-id='54412'>var.<\/rank> <element>carnea<\/element> <authors>(<base data-id='1864' title='Baker, R.T.'>R.T.Baker<\/base>) <author data-id='2328' title='Maiden, J.H.'>Maiden<\/author><\/authors><\/name><\/scientific><name-status class=\"legitimate\">, legitimate<\/name-status> <year>(1907)<\/year> <type>nomenclatural synonym<\/type><\/nom><nom><scientific><name data-id='89083'><scientific><name data-id='89062'><scientific><name data-id='102507'><element>Eucalyptus<\/element><\/name><\/scientific> <element>umbra<\/element><\/name><\/scientific> <rank data-id='54410'>subsp.<\/rank> <element>carnea<\/element> <authors>(<base data-id='1864' title='Baker, R.T.'>R.T.Baker<\/base>) <author data-id='1489' title='Johnson, L.A.S.'>L.A.S.Johnson<\/author><\/authors><\/name><\/scientific><name-status class=\"legitimate\">, legitimate<\/name-status> <year>(17 September 1962)<\/year> <type>nomenclatural synonym<\/type><\/nom><\/synonyms>"
+			}
+		],
+		"versionUpdatedBy": "amonro",
+		"versionUpdatedAt": "2020-10-29T09:00:05Z",
+		"elementUpdatedBy": "amonro",
+		"elementUpdatedAt": "2020-10-29T09:00:04Z"
+	}
+}
