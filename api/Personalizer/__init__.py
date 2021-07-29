@@ -104,7 +104,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             exception_details = traceback.format_exception(exc_type, exc_value,
                                             exc_traceback)
             return func.HttpResponse(
-                exception_details,
+                repr(exception_details),
                 mimetype="text/plain",
                 status_code=500
             )
