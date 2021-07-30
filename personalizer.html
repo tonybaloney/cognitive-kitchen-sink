@@ -248,18 +248,18 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                     console.log(this.responseText);
                     alert('bad request to API');
                   } else {
-                    results = JSON.parse(this.responseText);
+                    result = JSON.parse(this.responseText);
                     for (var i = 0 ; i < result.recommendations.length ; i ++ ){
                       document.getElementById("results-body").innerHTML += `
                         <tr>
-                          <td>${results.recommendations[i].id}</td>
-                          <td>${results.recommendations[i].probability}</td>
+                          <td>${result.recommendations[i].id}</td>
+                          <td>${result.recommendations[i].probability}</td>
                         </tr>
                       `
                     }
                     document.getElementById("selection-controls").innerHTML += 'Rate this recommendation : '
-                    document.getElementById("selection-controls").innerHTML += `<button class="button is-primary" onclick="choose('${results.id}', 1)"><i class="fas fa-thumbs-up"></i></button>`
-                    document.getElementById("selection-controls").innerHTML += `<button class="button is-primary" onclick="choose('${results.id}', -1)"><i class="fas fa-thumbs-down"></i></button>`
+                    document.getElementById("selection-controls").innerHTML += `<button class="button is-primary" onclick="choose('${result.id}', 1)"><i class="fas fa-thumbs-up"></i></button>`
+                    document.getElementById("selection-controls").innerHTML += `<button class="button is-primary" onclick="choose('${result.id}', -1)"><i class="fas fa-thumbs-down"></i></button>`
                   }
                 };
               }
