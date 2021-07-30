@@ -131,7 +131,7 @@
 import json
 import os
 from azure.cognitiveservices.personalizer import PersonalizerClient
-from azure.cognitiveservices.personalizer.models import RankableAction, RankRequest
+from azure.cognitiveservices.personalizer.models import RankableAction, RankRequest, RewardRequest
 from msrest.authentication import CognitiveServicesCredentials
 
 import os
@@ -184,27 +184,43 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     df = pd.read_csv('data/koala-survey-sightings-data.csv', encoding='utf-8', parse_dates=[['Date', 'Time']])
 
-    region = req.params['region']
-    habitat = req.params['habitat']
+    action = req.params.get('action', False)
 
-    options = get_options(df)[:50]
+    if not action:
+        region = req.params['region']
+        habitat = req.params['habitat']
 
-    if TRAINING_MODE:
-        train(client, df, options)
+        options = get_options(df)[:50]
 
-    # Get a recommendation for the current input
-    eventid = str(uuid.uuid4())
-    rank_request = RankRequest(actions=options, context_features=[{'area': region}, {'habitat': habitat}], event_id=eventid)
-    response = client.rank(rank_request=rank_request)
+        if TRAINING_MODE:
+            train(client, df, options)
 
-    results = [{'id': ranked.id, 'probability': ranked.probability} for ranked in response.ranking]
+        # Get a recommendation for the current input
+        eventid = str(uuid.uuid4())
+        rank_request = RankRequest(actions=options, context_features=[{'area': region}, {'habitat': habitat}], event_id=eventid)
+        response = client.rank(rank_request=rank_request)
 
-    return func.HttpResponse(
-            json.dumps({"id": eventid, "recommendations": results}),
-            status_code=200
-        )
+        results = [{'id': ranked.id, 'probability': ranked.probability} for ranked in response.ranking]
 
-                
+        return func.HttpResponse(
+                json.dumps({"id": eventid, "recommendations": results}),
+                status_code=200
+            )
+    elif action == 'choose':
+        id = req.params['id']
+        try:
+            response = float(req.params['response'])
+            client.events.reward(event_id=id, value=response)
+        except ValueError:
+            return func.HttpResponse(
+                "bad response value",
+                status_code=400
+            )
+    else:
+        return func.HttpResponse(
+                "invalid action",
+                status_code=400
+            )   
               </code></pre>
               </div>
           </div>
@@ -232,10 +248,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                     console.log(this.responseText);
                     alert('bad request to API');
                   } else {
-                    document.getElementById("results-table").style.display = 'none';
                     result = JSON.parse(this.responseText);
                     for (var i = 0 ; i < result.recommendations.length ; i ++ ){
-                      document.getElementById("results-table") += `
+                      document.getElementById("results-body") += `
                         <tr>
                           <td>${results.recommendations[i].id}</td>
                           <td>${results.recommendations[i].probability}</td>
