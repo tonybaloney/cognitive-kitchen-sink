@@ -38,12 +38,13 @@ def train(client, df, options):
         context = [{'area': row['SurveyArea']}, {'habitat': row['BushlandOrUrban']}]
         rank_request = RankRequest(actions=options, context_features=context, event_id=eventid)
         response = client.rank(rank_request=rank_request)
-        if row['TreeSpecies'] not in response.ranking:
-            reward = 0
-        elif row['TreeSpecies'] == response.ranking[0]:
-            reward = 1
-        else:
-            reward = 0.2
+        reward = 0
+        for ranking in response.ranking:
+            if ranking.id == row['TreeSpecies']:
+                if ranking.probability > 0.5:
+                    reward = 1
+                else:
+                    reward = 0.5
         print('worked out reward as ', reward)
         client.events.reward(event_id=eventid, value=reward)
 
