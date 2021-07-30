@@ -4,12 +4,14 @@ from azure.cognitiveservices.personalizer import PersonalizerClient
 from azure.cognitiveservices.personalizer.models import RankableAction, RewardRequest, RankRequest
 from msrest.authentication import CognitiveServicesCredentials
 
-import datetime, json, os, time, uuid
+import os
+import uuid
 from azure.core.exceptions import HttpResponseError
 
 import pandas as pd
 
 import azure.functions as func
+from ..utils import debuggable
 
 
 def get_actions():
@@ -23,7 +25,7 @@ def get_actions():
 def get_user_timeofday():
     res={}
     time_features = ["morning", "afternoon", "evening", "night"]
-    time = input("What time of day is it (enter number)? 1. morning 2. afternoon 3. evening 4. night\n")
+    time = "2"
     try:
         ptime = int(time)
         if(ptime<=0 or ptime>len(time_features)):
@@ -38,7 +40,7 @@ def get_user_timeofday():
 def get_user_preference():
     res = {}
     taste_features = ['salty','sweet']
-    pref = input("What type of food would you prefer? Enter number 1.salty 2.sweet\n")
+    pref = "1"
     
     try:
         ppref = int(pref)
@@ -51,11 +53,10 @@ def get_user_preference():
     return res
 
 
-
-
-def _main(req: func.HttpRequest) -> func.HttpResponse:
+@debuggable(default=True)
+def main(req: func.HttpRequest) -> func.HttpResponse:
     client = PersonalizerClient(os.environ['PERSONALIZER_ENDPOINT'], CognitiveServicesCredentials(os.environ['PERSONALIZER_KEY']))
-            
+
     keep_going = True
     while keep_going:
 
@@ -66,9 +67,7 @@ def _main(req: func.HttpRequest) -> func.HttpResponse:
 
         rank_request = RankRequest( actions=actions, context_features=context, excluded_actions=['juice'], event_id=eventid)
         response = client.rank(rank_request=rank_request)
-        
-        print("Personalizer service ranked the actions with the probabilities listed below:")
-        
+
         rankedList = response.ranking
         for ranked in rankedList:
             print(ranked.id, ':',ranked.probability)
@@ -93,28 +92,3 @@ def _main(req: func.HttpRequest) -> func.HttpResponse:
         )    
 
 
-def main(req: func.HttpRequest) -> func.HttpResponse:
-    try:
-        return _main(req)
-    except Exception as exc:
-        import os
-        if os.getenv('DEBUG', True):
-            logging.exception(exc)
-            import sys, traceback
-            exc_type, exc_value, exc_traceback = sys.exc_info()
-            exception_details = traceback.format_exception(exc_type, exc_value,
-                                            exc_traceback)
-            response = '<html><body><h1>Server Error</h1>'
-            for t in exception_details:
-                response += '<pre>' + t + '</pre>'
-            response += '</body></html>'
-            return func.HttpResponse(
-                response,
-                mimetype="text/html",
-                status_code=500
-            )
-        else:
-            return func.HttpResponse(
-                "Server Error",
-                status_code=500
-            )
