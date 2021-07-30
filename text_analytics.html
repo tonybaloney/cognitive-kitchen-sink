@@ -61,13 +61,7 @@
                     This data was then given to the Atlas of Living Australia as a species index and the APNI data was returned. After pulling a text description of each tree species from Wikipedia,
                     this demonstration will parse the text description from Wikipedia and identify key phrases. These phrases can be grouped and indexed for further ML work.
                 </p>
-            </div>
-              <div class="column is-one-third"><figure class="image is-4by3">
-                <img src="/res/img/Eucalyptus_microcorys.jpg" alt="Tree (Eucalyptus microcorys).">
-              </figure></div>
-            </div>
-
-            <p>Select a plant species to see the information from Wikipedia and some key phrases:</p>
+                <p>Select a plant species to see the information from Wikipedia and some key phrases:</p>
 
             <div class="field">
               <label class="label">Species</label>
@@ -137,6 +131,11 @@
             <div class="control">
               <button id="submit-button" class="button is-primary" onclick="verify()">Submit</button>
             </div>
+            </div>
+              <div class="column is-one-third"><figure class="image is-4by3">
+                <img src="/res/img/Eucalyptus_microcorys.jpg" alt="Tree (Eucalyptus microcorys).">
+              </figure></div>
+            </div>
             <br/>
             <article id="message-box" class="message" style="display: none;">
               <div class="message-header">
@@ -149,8 +148,8 @@
                 <a href="https://www.ala.org.au/terms-of-use/">Data</a> from the Atlas of Living Australia, distributed with attribution under <a href="https://creativecommons.org/licenses/by/3.0/au/deed.en">Attribution 3.0 Australia (CC BY 3.0 AU)</a>. </i>
             </p>
 
-       </div>
-            <div class="section">
+          </div>
+          <div class="section">
               <h2 class="title">Azure Functions Source Code</h2>
               <pre><code class="language-python">
 import os
