@@ -70,7 +70,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         rank_request = RankRequest(actions=options, context_features=[{'area': region}, {'habitat': habitat}], event_id=eventid)
         response = client.rank(rank_request=rank_request)
 
-        results = [{'id': ranked.id, 'probability': ranked.probability} for ranked in response.ranking]
+        results = sorted([{'id': ranked.id, 'probability': ranked.probability} for ranked in response.ranking], key=lambda k: k['probability'], reverse=True) 
 
         return func.HttpResponse(
                 json.dumps({"id": eventid, "recommendations": results}),
