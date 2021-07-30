@@ -67,8 +67,6 @@
               </figure></div>
             </div>
 
-
-
             <p>Select a plant species to see the information from Wikipedia and some key phrases:</p>
 
             <div class="field">
@@ -145,7 +143,6 @@
                 <p>Result</p>
               </div>
               <div id="message-text" class="message-body"></div>
-              <div id="response-phrases" class="message-body"></div>
             </article>
             <p>
               <i>The <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/TextAnalytics/__init__.py">Source Code</a> is open source and licensed under MIT. 
@@ -156,73 +153,59 @@
             <div class="section">
               <h2 class="title">Azure Functions Source Code</h2>
               <pre><code class="language-python">
-import logging
 import os
-from datetime import datetime
-from azure.core.exceptions import HttpResponseError
-from azure.ai.anomalydetector import AnomalyDetectorClient
-from azure.ai.anomalydetector.models import DetectRequest, TimeSeriesPoint, TimeGranularity
 from azure.core.credentials import AzureKeyCredential
-import pandas as pd
-
+from azure.ai.textanalytics import TextAnalyticsClient
 import azure.functions as func
+import json
+from ..utils import debuggable
 
 
-def main(req: func.HttpRequest) -> func.HttpResponse:
-    try:
-        client = AnomalyDetectorClient(AzureKeyCredential(os.environ["ANOMALY_DETECTOR_KEY"]), os.environ["ANOMALY_DETECTOR_ENDPOINT"])
+@debuggable()
+def main(req: func.HttpRequest) -> func.HttpResponse: 
+    species = req.params['species']
+    with open('data/plants.json') as plants_index:
+        plants = json.load(plants_index)
 
-        try:
-            height_of_koala = int(req.params.get('height_of_koala'))
-            height_of_tree = int(req.params.get('height_of_tree'))
-            if height_of_tree == 0:
-                raise ValueError
-        except ValueError as e:
-            logging.exception(e)
-            return func.HttpResponse(str(e), status_code=500)
+    if species not in plants:
+        return func.HttpResponse(
+            "Plant not recognized",
+            status_code=400
+        ) 
 
-        df = pd.read_csv(os.path.join("data", "koala-survey-sightings-data.csv"), encoding='utf-8', parse_dates=[['Date', 'Time']])
+    plant_info = os.path.join('data', 'apni', plants[species]['id'] + '.txt')
+    if not os.path.exists(plant_info):
+        return func.HttpResponse(
+            "No information on this plant",
+            status_code=400
+        )
 
-        # Drop entries with no height recorded.
-        df.dropna(subset=['HeightOfKoalaInTree_m', 'HeightOfTree_m'], inplace=True)
-        # Drop entries recorded at the exact same time
-        df.drop_duplicates(subset = ["Date_Time"], inplace=True)
-        # Calculate the percentage of the tree the Koala has climbed
-        df['PercentageHeightClimbed'] = df['HeightOfKoalaInTree_m'] / df['HeightOfTree_m']
-        # Turn into a timeseries
-        series = [TimeSeriesPoint(timestamp=row[0], value=row[1]) for _, row in df[['Date_Time', 'PercentageHeightClimbed']].sort_values(by=['Date_Time']).iterrows()]
-        
-        # Add the user input
-        series.append(TimeSeriesPoint(timestamp=datetime.now(), value=height_of_koala/height_of_tree))
-        request = DetectRequest(series=series, granularity=TimeGranularity.NONE)
+    with open(plant_info) as p:
+        plant_description = p.read()
+
+    endpoint = os.environ["TEXT_ANALYTICS_ENDPOINT"]
+    key = os.environ["TEXT_ANALYTICS_KEY"]
+
+    text_analytics_client = TextAnalyticsClient(endpoint=endpoint, credential=AzureKeyCredential(key))
+
+    articles = [plant_description]
+    results = []
+    result = text_analytics_client.extract_key_phrases(articles)
+    for _, doc in enumerate(result):
+        if not doc.is_error:
+            results.extend(doc.key_phrases)
+
     
-        response = client.detect_last_point(request)
-    except HttpResponseError as e:
-        msg = 'Error code: {} '.format(e.error.code) + 'Error message: {}'.format(e.error.message)
-        logging.error(msg)
-        return func.HttpResponse('Error code: {} '.format(e.error.code), status_code=500)
-    except Exception as e:
-        logging.exception(e)
-        return func.HttpResponse(str(e), status_code=500)
-
-    if response.is_anomaly:
-        return func.HttpResponse(
-            "Anomaly",
+    return func.HttpResponse(
+            json.dumps({"text": plant_description, "key_phrases": results}),
             status_code=200
-        )
-    else:
-        return func.HttpResponse(
-            "OK",
-            status_code=200
-        )
-                
+        ) 
               </code></pre>
               </div>
           </div>
             <script>
               function verify() {
                 document.getElementById("message-box").style.display = 'none';
-                document.getElementById("response-phrases").innerHTML = '';
                 var species = document.getElementById("species").value;
 
                 var xhr = new XMLHttpRequest();
@@ -248,8 +231,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                     document.getElementById('message-box').classList.add('is-success');
                     var result = JSON.parse(this.responseText);
                     document.getElementById("message-text").innerText = result.text;
-                    for (var i = 0 ; i < result.key_phrases.length() ; i ++){
-                      document.getElementById("response-phrases").innerHTML += `<span class="tag is-primary">${result.key_phrases[i]}</span>`;
+                    for (var i = 0 ; i < result.key_phrases.length ; i ++){
+                      document.getElementById("message-text").innerHTML.replace(result.key_phrases[i], `<span class="tag is-primary">${result.key_phrases[i]}</span>`);
                     }
                   }
                 };
