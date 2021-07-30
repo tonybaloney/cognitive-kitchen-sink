@@ -231,10 +231,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                     var result = JSON.parse(this.responseText);
                     var t = result.text;
                     for (var i = 0 ; i < result.key_phrases.length ; i ++){
-                      t = t.replace(result.key_phrases[i], `%^%${result.key_phrases[i]}%_%`);
+                      t = t.replaceAll(result.key_phrases[i], `%^%${result.key_phrases[i]}%_%`);
                     }
-                    t = t.replace("%^%", `<span class="tag is-primary">`);
-                    t = t.replace("%_%", `</span>`);
+                    t = t.replaceAll("%^%", `<span class="tag is-primary">`);
+                    t = t.replaceAll("%_%", `</span>`);
                     t += `<br/><a class="button" href="${result.link}">More Information</a>`
                     document.getElementById("message-text").innerHTML = t;
                   }
