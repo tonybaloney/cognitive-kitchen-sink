@@ -250,7 +250,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                   } else {
                     result = JSON.parse(this.responseText);
                     for (var i = 0 ; i < result.recommendations.length ; i ++ ){
-                      document.getElementById("results-body").innerHTML  += `
+                      document.getElementById("results-body").innerHTML += `
                         <tr>
                           <td>${results.recommendations[i].id}</td>
                           <td>${results.recommendations[i].probability}</td>
@@ -263,11 +263,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                   }
                 };
               }
-              function choose(id, selection) {
+              function choose(id, response) {
                 var xhr = new XMLHttpRequest();
                 xhr.open(
                   "GET",
-                  "https://white-pebble-0101a6a10.azurestaticapps.net/api/Personalizer?action=choose&id="+id + "&selection=" + encodeURI(selection),
+                  "https://white-pebble-0101a6a10.azurestaticapps.net/api/Personalizer?action=choose&id=" + encodeURI(id) + "&response=" + parseInt(response),
                   true
                 );
                 xhr.send();
