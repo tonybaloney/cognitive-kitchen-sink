@@ -228,6 +228,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
               function verify() {
                 document.getElementById("results-table").style.display = 'none';
                 document.getElementById("selection-controls").innerHTML = '';
+                document.getElementById("results-body").innerHTML = '';
                 var region = encodeURI(document.getElementById("region").value);
                 var habitat = encodeURI(document.getElementById("habitat").value);
 
@@ -258,8 +259,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                       `
                     }
                     document.getElementById("selection-controls").innerHTML += 'Rate this recommendation : '
-                    document.getElementById("selection-controls").innerHTML += `<button class="button is-primary" onclick="choose('${result.id}', 1)"><i class="fas fa-thumbs-up"></i></button>`
-                    document.getElementById("selection-controls").innerHTML += `<button class="button is-primary" onclick="choose('${result.id}', -1)"><i class="fas fa-thumbs-down"></i></button>`
+                    document.getElementById("selection-controls").innerHTML += `<button class="button is-danger" onclick="choose('${result.id}', 0)"><i class="fas fa-thumbs-down"></i></button>`
+                    document.getElementById("selection-controls").innerHTML += `<button class="button is-success" onclick="choose('${result.id}', 1)"><i class="fas fa-thumbs-up"></i></button>&nbsp;`
                   }
                 };
               }
