@@ -248,7 +248,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                     console.log(this.responseText);
                     alert('bad request to API');
                   } else {
-                    result = JSON.parse(this.responseText);
+                    results = JSON.parse(this.responseText);
                     for (var i = 0 ; i < result.recommendations.length ; i ++ ){
                       document.getElementById("results-body").innerHTML += `
                         <tr>
