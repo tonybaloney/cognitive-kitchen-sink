@@ -3,8 +3,10 @@ from azure.core.credentials import AzureKeyCredential
 from azure.ai.textanalytics import TextAnalyticsClient
 import azure.functions as func
 import json
+from ..utils import debuggable
 
 
+@debuggable
 def main(req: func.HttpRequest) -> func.HttpResponse: 
     species = req.params['species']
     with open('data/plants.json') as plants_index:
