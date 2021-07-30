@@ -77,6 +77,47 @@
               </figure></div>
             </div>
 
+            <div class="field">
+              <label class="label">Region</label>
+              <div class="control">
+                <div class="select">
+                  <select id='region'>
+                    <option value='Koala Coast'>Koala Coast</option>
+                    <option value='Pine Rivers'>Pine Rivers</option>
+                    <option value='Ipswich'>Ipswich</option>
+                    <option value='Caboolture/Redcliffe'>Caboolture/Redcliffe</option>
+                    <option value='Logan'>Logan</option>
+                    <option value='Gold Coast'>Gold Coast</option>
+                    <option value='Noosa'>Noosa</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Habitat</label>
+              <div class="control">
+                <div class="select">
+                  <select id='habitat'>
+                    <option value="Bushland">Bushland</option>
+                    <option value="Urban">Urban</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="control">
+              <button id="submit-button" class="button is-primary" onclick="verify()">Submit</button>
+            </div>
+            <div id='selection-controls'></div>
+            <table class="table" id='results-table' style="display:none">
+              <thead>
+                <tr>
+                  <th>Species</th>
+                  <th>Ranking</th>
+                </tr>
+              </thead>
+              <tbody id='results-body'></tbody>
+            </table>
+
             <p>
               <i>Photo by <a href="https://unsplash.com/@archiecarlson?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Archie Carlson</a> on <a href="https://unsplash.com/s/photos/koala?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>.</i>
               <i>The <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/Personalizer/__init__.py">Source Code</a> is open source and licensed under MIT. 
@@ -87,99 +128,136 @@
             <div class="section">
               <h2 class="title">Azure Functions Source Code</h2>
               <pre><code class="language-python">
-import logging
+import json
 import os
-from datetime import datetime
-from azure.core.exceptions import HttpResponseError
-from azure.ai.anomalydetector import AnomalyDetectorClient
-from azure.ai.anomalydetector.models import DetectRequest, TimeSeriesPoint, TimeGranularity
-from azure.core.credentials import AzureKeyCredential
+from azure.cognitiveservices.personalizer import PersonalizerClient
+from azure.cognitiveservices.personalizer.models import RankableAction, RankRequest
+from msrest.authentication import CognitiveServicesCredentials
+
+import os
+import uuid
+
 import pandas as pd
 
 import azure.functions as func
+from ..utils import debuggable
+
+SHORTHANDS = {"E.": "Eucalyptus", 
+          "L.":"Lophostemon",
+          "C.": "Corymbia",
+          "A.": "Angophora"}
+TRAINING_MODE = False
+
+def get_options(df: pd.DataFrame):
+    options = []
+
+    for n in df['TreeSpecies'].dropna().unique():
+        family = n
+        for k, v in SHORTHANDS:
+            if n.startswith(k):
+                family = v
+        options.append(RankableAction(id=n, features=[{'tree_family': str(family), 'genus': 'Myrtaceae'},]))
+
+    return options
 
 
+def train(client, df, options):
+    # Train the model , shouldn't do this every time
+    for _, row in df.iterrows():
+        eventid = str(uuid.uuid4())
+        context = [{'area': row['SurveyArea']}, {'habitat': row['BushlandOrUrban']}]
+        rank_request = RankRequest(actions=options, context_features=context, event_id=eventid)
+        response = client.rank(rank_request=rank_request)
+        if row['TreeSpecies'] not in response.ranking:
+            reward = -1
+        elif row['TreeSpecies'] == response.ranking[0]:
+            reward = 1
+        else:
+            reward = 0
+        print('worked out reward as ', reward)
+        client.events.reward(event_id=eventid, value=reward)
+
+
+@debuggable()
 def main(req: func.HttpRequest) -> func.HttpResponse:
-    try:
-        client = AnomalyDetectorClient(AzureKeyCredential(os.environ["ANOMALY_DETECTOR_KEY"]), os.environ["ANOMALY_DETECTOR_ENDPOINT"])
+    client = PersonalizerClient(os.environ['PERSONALIZER_ENDPOINT'], CognitiveServicesCredentials(os.environ['PERSONALIZER_KEY']))
 
-        try:
-            height_of_koala = int(req.params.get('height_of_koala'))
-            height_of_tree = int(req.params.get('height_of_tree'))
-            if height_of_tree == 0:
-                raise ValueError
-        except ValueError as e:
-            logging.exception(e)
-            return func.HttpResponse(str(e), status_code=500)
+    df = pd.read_csv('data/koala-survey-sightings-data.csv', encoding='utf-8', parse_dates=[['Date', 'Time']])
 
-        df = pd.read_csv(os.path.join("data", "koala-survey-sightings-data.csv"), encoding='utf-8', parse_dates=[['Date', 'Time']])
+    region = req.params['region']
+    habitat = req.params['habitat']
 
-        # Drop entries with no height recorded.
-        df.dropna(subset=['HeightOfKoalaInTree_m', 'HeightOfTree_m'], inplace=True)
-        # Drop entries recorded at the exact same time
-        df.drop_duplicates(subset = ["Date_Time"], inplace=True)
-        # Calculate the percentage of the tree the Koala has climbed
-        df['PercentageHeightClimbed'] = df['HeightOfKoalaInTree_m'] / df['HeightOfTree_m']
-        # Turn into a timeseries
-        series = [TimeSeriesPoint(timestamp=row[0], value=row[1]) for _, row in df[['Date_Time', 'PercentageHeightClimbed']].sort_values(by=['Date_Time']).iterrows()]
-        
-        # Add the user input
-        series.append(TimeSeriesPoint(timestamp=datetime.now(), value=height_of_koala/height_of_tree))
-        request = DetectRequest(series=series, granularity=TimeGranularity.NONE)
-    
-        response = client.detect_last_point(request)
-    except HttpResponseError as e:
-        msg = 'Error code: {} '.format(e.error.code) + 'Error message: {}'.format(e.error.message)
-        logging.error(msg)
-        return func.HttpResponse('Error code: {} '.format(e.error.code), status_code=500)
-    except Exception as e:
-        logging.exception(e)
-        return func.HttpResponse(str(e), status_code=500)
+    options = get_options(df)[:50]
 
-    if response.is_anomaly:
-        return func.HttpResponse(
-            "Anomaly",
+    if TRAINING_MODE:
+        train(client, df, options)
+
+    # Get a recommendation for the current input
+    eventid = str(uuid.uuid4())
+    rank_request = RankRequest(actions=options, context_features=[{'area': region}, {'habitat': habitat}], event_id=eventid)
+    response = client.rank(rank_request=rank_request)
+
+    results = [{'id': ranked.id, 'probability': ranked.probability} for ranked in response.ranking]
+
+    return func.HttpResponse(
+            json.dumps({"id": eventid, "recommendations": results}),
             status_code=200
         )
-    else:
-        return func.HttpResponse(
-            "OK",
-            status_code=200
-        )
+
                 
               </code></pre>
               </div>
           </div>
             <script>
               function verify() {
-                document.getElementById("message-box").style.display = 'none';
-
-                var height_of_koala = parseInt(document.getElementById("height_of_koala").value);
-                var height_of_tree = parseInt(document.getElementById("height_of_tree").value);
+                document.getElementById("results-table").style.display = 'none';
+                document.getElementById("selection-controls").innerHTML = '';
+                var region = encodeURI(document.getElementById("region").value);
+                var habitat = encodeURI(document.getElementById("habitat").value);
 
                 var xhr = new XMLHttpRequest();
                 xhr.open(
                   "GET",
-                  "https://white-pebble-0101a6a10.azurestaticapps.net/api/AnomalyDetection?height_of_koala="+height_of_koala+"&height_of_tree="+height_of_tree,
+                  "https://white-pebble-0101a6a10.azurestaticapps.net/api/Personalizer?region="+region+"&habitat="+habitat,
                   true
                 );
                 xhr.send();
                 document.getElementById('submit-button').classList.add('is-loading');
                 xhr.onload = function () {
                   document.getElementById('submit-button').classList.remove('is-loading');
-                  document.getElementById("message-box").style.display = 'block';
-                  document.getElementById("message-box").className = 'message';
-
+                  document.getElementById("results-table").style.display = 'block';
                   if (this.status === 500){
-                    document.getElementById('message-box').classList.add('is-danger');
-                    document.getElementById("message-text").innerText = "Error with data";
+                    alert("Error with data");
                   } else if (this.status == 400){
-                    document.getElementById('message-box').classList.add('is-warning');
-                    document.getElementById("message-text").innerText = this.responseText;
+                    console.log(this.responseText);
+                    alert('bad request to API');
                   } else {
-                    document.getElementById('message-box').classList.add('is-success');
-                    document.getElementById("message-text").innerText = this.responseText;
+                    document.getElementById("results-table").style.display = 'none';
+                    result = JSON.parse(this.responseText);
+                    for (var i = 0 ; i < result.recommendations.length ; i ++ ){
+                      document.getElementById("results-table") += `
+                        <tr>
+                          <td>${results.recommendations[i].id}</td>
+                          <td>${results.recommendations[i].probability}</td>
+                        </tr>
+                      `
+                    }
+                    document.getElementById("selection-controls").innerHTML += 'Rate this recommendation : '
+                    document.getElementById("selection-controls").innerHTML += `<button class="button is-primary" onclick="choose('${results.id}', 1)"><i class="fas fa-thumbs-up"></i></button>`
+                    document.getElementById("selection-controls").innerHTML += `<button class="button is-primary" onclick="choose('${results.id}', -1)"><i class="fas fa-thumbs-down"></i></button>`
                   }
+                };
+              }
+              function choose(id, selection) {
+                var xhr = new XMLHttpRequest();
+                xhr.open(
+                  "GET",
+                  "https://white-pebble-0101a6a10.azurestaticapps.net/api/Personalizer?action=choose&id="+id + "&selection=" + encodeURI(selection),
+                  true
+                );
+                xhr.send();
+                xhr.onload = function () {
+                  document.getElementById("selection-controls").innerHTML = '';
                 };
               }
             </script>

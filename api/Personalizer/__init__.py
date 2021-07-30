@@ -1,93 +1,93 @@
-import logging
+import json
 import os
 from azure.cognitiveservices.personalizer import PersonalizerClient
-from azure.cognitiveservices.personalizer.models import RankableAction, RewardRequest, RankRequest
+from azure.cognitiveservices.personalizer.models import RankableAction, RankRequest, RewardRequest
 from msrest.authentication import CognitiveServicesCredentials
 
 import os
 import uuid
-from azure.core.exceptions import HttpResponseError
 
 import pandas as pd
 
 import azure.functions as func
 from ..utils import debuggable
 
+SHORTHANDS = {"E.": "Eucalyptus", 
+         "L.":"Lophostemon",
+         "C.": "Corymbia",
+         "A.": "Angophora"}
+TRAINING_MODE = False
 
-def get_actions():
-    action1 = RankableAction(id='pasta', features=[{"taste":"salty", "spice_level":"medium"},{"nutrition_level":5,"cuisine":"italian"}])
-    action2 = RankableAction(id='ice cream', features=[{"taste":"sweet", "spice_level":"none"}, { "nutritional_level": 2 }])
-    action3 = RankableAction(id='juice', features=[{"taste":"sweet", 'spice_level':'none'}, {'nutritional_level': 5}, {'drink':True}])
-    action4 = RankableAction(id='salad', features=[{'taste':'salty', 'spice_level':'none'},{'nutritional_level': 2}])
-    return [action1, action2, action3, action4]
+def get_options(df: pd.DataFrame):
+    options = []
 
+    for n in df['TreeSpecies'].dropna().unique():
+        family = n
+        for k, v in SHORTHANDS:
+            if n.startswith(k):
+                family = v
+        options.append(RankableAction(id=n, features=[{'tree_family': str(family), 'genus': 'Myrtaceae'},]))
 
-def get_user_timeofday():
-    res={}
-    time_features = ["morning", "afternoon", "evening", "night"]
-    time = "2"
-    try:
-        ptime = int(time)
-        if(ptime<=0 or ptime>len(time_features)):
-            raise IndexError
-        res['time_of_day'] = time_features[ptime-1]
-    except (ValueError, IndexError):
-        print("Entered value is invalid. Setting feature value to", time_features[0] + ".")
-        res['time_of_day'] = time_features[0]
-    return res
+    return options
 
 
-def get_user_preference():
-    res = {}
-    taste_features = ['salty','sweet']
-    pref = "1"
-    
-    try:
-        ppref = int(pref)
-        if(ppref<=0 or ppref>len(taste_features)):
-            raise IndexError
-        res['taste_preference'] = taste_features[ppref-1]
-    except (ValueError, IndexError):
-        print("Entered value is invalid. Setting feature value to", taste_features[0]+ ".")
-        res['taste_preference'] = taste_features[0]
-    return res
+def train(client, df, options):
+    # Train the model , shouldn't do this every time
+    for _, row in df.iterrows():
+        eventid = str(uuid.uuid4())
+        context = [{'area': row['SurveyArea']}, {'habitat': row['BushlandOrUrban']}]
+        rank_request = RankRequest(actions=options, context_features=context, event_id=eventid)
+        response = client.rank(rank_request=rank_request)
+        if row['TreeSpecies'] not in response.ranking:
+            reward = -1
+        elif row['TreeSpecies'] == response.ranking[0]:
+            reward = 1
+        else:
+            reward = 0
+        print('worked out reward as ', reward)
+        client.events.reward(event_id=eventid, value=reward)
 
 
+@debuggable()
 def main(req: func.HttpRequest) -> func.HttpResponse:
     client = PersonalizerClient(os.environ['PERSONALIZER_ENDPOINT'], CognitiveServicesCredentials(os.environ['PERSONALIZER_KEY']))
 
-    keep_going = True
-    while keep_going:
+    df = pd.read_csv('data/koala-survey-sightings-data.csv', encoding='utf-8', parse_dates=[['Date', 'Time']])
 
+    action = req.params.get('action', False)
+
+    if not action:
+        region = req.params['region']
+        habitat = req.params['habitat']
+
+        options = get_options(df)[:50]
+
+        if TRAINING_MODE:
+            train(client, df, options)
+
+        # Get a recommendation for the current input
         eventid = str(uuid.uuid4())
-
-        context = [get_user_preference(), get_user_timeofday()]
-        actions = get_actions()
-
-        rank_request = RankRequest( actions=actions, context_features=context, excluded_actions=['juice'], event_id=eventid)
+        rank_request = RankRequest(actions=options, context_features=[{'area': region}, {'habitat': habitat}], event_id=eventid)
         response = client.rank(rank_request=rank_request)
 
-        rankedList = response.ranking
-        for ranked in rankedList:
-            print(ranked.id, ':',ranked.probability)
+        results = [{'id': ranked.id, 'probability': ranked.probability} for ranked in response.ranking]
 
-        print("Personalizer thinks you would like to have", response.reward_action_id+".")
-        answer = 'y'
-
-        reward_val = "0.0"
-        if(answer.lower()=='y'):
-            reward_val = "1.0"
-        elif(answer.lower()=='n'):
-            reward_val = "0.0"
-        else:
-            print("Entered choice is invalid. Service assumes that you didn't like the recommended food choice.")
-
-        client.events.reward(event_id=eventid, value=reward_val)
-
-        keep_going = False
-    return func.HttpResponse(
-            "OK",
-            status_code=200
-        )    
-
-
+        return func.HttpResponse(
+                json.dumps({"id": eventid, "recommendations": results}),
+                status_code=200
+            )
+    elif action == 'choose':
+        id = req.params['id']
+        try:
+            response = float(req.params['response'])
+            client.events.reward(event_id=id, value=response)
+        except ValueError:
+            return func.HttpResponse(
+                "bad response value",
+                status_code=400
+            )
+    else:
+        return func.HttpResponse(
+                "invalid action",
+                status_code=400
+            )
