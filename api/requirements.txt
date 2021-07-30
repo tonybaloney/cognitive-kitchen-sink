@@ -5,4 +5,5 @@
 azure-functions
 azure-ai-anomalydetector
 azure-cognitiveservices-personalizer
+azure-ai-textanalytics
 pandas

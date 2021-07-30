@@ -51,113 +51,88 @@
     <div class="container column is-10">
         <div class="section">
             <h1 class="title">
-                Personalizer
+                Text Analytics
             </h1>
 
             <div class="columns">
               <div class="column">
                 <p>
-                  This experiment uses <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/data/koala.ipynb">a dataset</a> of sightings of wild Koalas in Australia. 
-                  This dataset captured the date and time of the sighting, along with the species of the tree the koala was in. Koala will spend a lot of their day sleeping and the remainder snacking on their favourite food-- gum (Eucalyptus) leaves.
-                </p>
-                <p>
-                  The Australian department of agriculture lists 531 species of Eucalyptus in the <a href="https://www.agriculture.gov.au/abares/forestsaustralia/forest-data-maps-and-tools/data-workbooks#lists-of-forest-species-and-ecological-communities-from-australias-state-of-the-forests-report-2018">catalogue of Australian Forest Flora.</a>
-                </p>
-                <p>
-                  In collaboration with the <a href="https://www.anbg.gov.au/gardens/">Australian National Botanic Garden</a> and other research institutions, the Atlas of Living Australia is a huge online database of records of sightings, species lists and observational records.
-                  The Koala Sightings data was collated and a list of the species that the koala were spotted in was submitted to the ALA. This produced a new dataset, a record of the 56 species those koala sightings were in.
+                    To aid in our research of Koala habitats, we've seen a dataset that captured which species of tree the koala were spotted in. 
+                    This data was then given to the Atlas of Living Australia as a species index and the APNI data was returned. After pulling a text description of each tree species from Wikipedia,
+                    this demonstration will parse the text description from Wikipedia and identify key phrases. These phrases can be grouped and indexed for further ML work.
                 </p>
             </div>
               <div class="column is-one-third"><figure class="image is-4by3">
-                <img src="/res/img/jordan-whitt-EerxztHCjM8-unsplash.jpg" alt="Koala asleep in tree.">
+                <img src="/res/img/Eucalyptus_microcorys.jpg" alt="Tree (Eucalyptus microcorys).">
               </figure></div>
             </div>
 
-            <div class="columns">
-              <div class="column is-one-third"><figure class="image is-4by3">
-                <img src="/res/img/aust-veg-map.gif" alt="Australia vegetation map.">
-              </figure></div>
-              <div class="column">
-                <p>
-                  In practice, you would train the model and save the model first, then only submit the new value instead of training the model each time. I wanted to demonstrate all the steps involved.
-                </p>
-            </div>
-            </div>
 
-            <table class="table">
-              <tbody><tr>
-                <td></td>
-                <td colspan="4"><center>
-                  <p><b>Percentage foliage cover of tallest plant layer</b></p>
-                </center></td>
-              </tr>
-              <tr>
-                <td><b>Life form and height of tallest stratum</b></td>
-                <td><b>Dense<br>
-                  (70-100%)</b></td>
-                <td><b>Mid-dense<br>
-                  (30-70%)</b></td>
-                <td><b>Sparse<br>
-                  (10-30%)</b></td>
-                <td><b>Very sparse<br>
-                  (&lt;10%)</b></td>
-              </tr>
-              <tr>
-                <td><b>Trees &gt; 30 m</b></td>
-                <td>Tall closed-forest</td>
-                <td>Tall open-forest</td>
-                <td>Tall woodland</td>
-                <td>Tall open-woodland</td>
-              </tr>
-              <tr>
-                <td><b>Trees 10-30 m</b></td>
-                <td>Closed-forest</td>
-                <td>Open -forest</td>
-                <td>Woodland</td>
-                <td>Open-woodland</td>
-              </tr>
-              <tr>
-                <td><b>Trees 5-10 m</b></td>
-                <td>Low closed-forest</td>
-                <td>Low open-forest</td>
-                <td>Low woodland</td>
-                <td>Low open-woodland</td>
-              </tr>
-              <tr>
-                <td><b>Shrubs 2-8 m</b></td>
-                <td>Closed -scrub</td>
-                <td>Open-scrub</td>
-                <td>Tall shrubland</td>
-                <td>Tall open-shrubland</td>
-              </tr>
-              <tr>
-                <td><b>Shrubs 0-2 m</b></td>
-                <td>Closed -heath</td>
-                <td>Open-heath</td>
-                <td>Low shrubland</td>
-                <td>Low open-shrubland</td>
-              </tr>
-            </tbody></table>
 
-            <p>
-              This chart shows the percentage of the tree climbed (height of koala/height of tree) for each data point. Koalas spend a lot of their day asleep, which they do in between main branches. They need to be far from ground-dwelling predators, such as dingoes, so they tend to go toward the top of the tree. This also makes it easy to wake up for a snack (leaves) from the tree.
+            <p>Select a plant species to see the information from Wikipedia and some key phrases:</p>
 
-              <figure class="image is-fullwidth">
-                <img src="/res/img/koala.png">
-              </figure>
-            </p>
-            <p>Input a test value and see what the Anomaly Detection API thinks of your data capture:</p>
             <div class="field">
-              <label class="label">Height of Koala from ground (in meters)</label>
+              <label class="label">Species</label>
               <div class="control">
-                <input id="height_of_koala" class="input" type="height_of_koala" placeholder="0">
-              </div>
-            </div>
-            
-            <div class="field">
-              <label class="label">Height of tree (in meters)</label>
-              <div class="control">
-                <input id="height_of_tree" class="input" type="height_of_tree" placeholder="10">
+                <div class="select">
+                  <select id='species'>
+                    <option value="Eucalyptus carnea">Eucalyptus carnea</option>
+                    <option value="Eucalyptus microcorys">Eucalyptus microcorys</option>
+                    <option value="Alphitonia excelsa">Alphitonia excelsa</option>
+                    <option value="Melaleuca quinquenervia">Melaleuca quinquenervia</option>
+                    <option value="Eucalyptus tereticornis">Eucalyptus tereticornis</option>
+                    <option value="Eucalyptus siderophloia">Eucalyptus siderophloia</option>
+                    <option value="Eucalyptus racemosa">Eucalyptus racemosa</option>
+                    <option value="Corymbia trachyphloia">Corymbia trachyphloia</option>
+                    <option value="Eucalyptus littoralis">Eucalyptus littoralis</option>
+                    <option value="Eucalyptus seeana">Eucalyptus seeana</option>
+                    <option value="Angophora">Angophora</option>
+                    <option value="Angophora woodsiana">Angophora woodsiana</option>
+                    <option value="Lophostemon suaveolens">Lophostemon suaveolens</option>
+                    <option value="Eucalyptus propinqua">Eucalyptus propinqua</option>
+                    <option value="Lophostemon confertus">Lophostemon confertus</option>
+                    <option value="Eucalyptus trachyphloia">Eucalyptus trachyphloia</option>
+                    <option value="Corymbia intermedia">Corymbia intermedia</option>
+                    <option value="Eucalyptus tindaliae">Eucalyptus tindaliae</option>
+                    <option value="Eucalyptus moluccana">Eucalyptus moluccana</option>
+                    <option value="Corymbia citriodora">Corymbia citriodora</option>
+                    <option value="Eucalyptus resinifera">Eucalyptus resinifera</option>
+                    <option value="Eucalyptus">Eucalyptus</option>
+                    <option value="Cinnamomum camphora">Cinnamomum camphora</option>
+                    <option value="Eucalyptus robusta">Eucalyptus robusta</option>
+                    <option value="Eucalyptus fibrosa">Eucalyptus fibrosa</option>
+                    <option value="Eucalyptus maculata">Eucalyptus maculata</option>
+                    <option value="Eucalyptus dunnii">Eucalyptus dunnii</option>
+                    <option value="Grevillea robusta">Grevillea robusta</option>
+                    <option value="Corymbia Callistemon">Corymbia Callistemon</option>
+                    <option value="Corymbia torelliana ">Corymbia torelliana </option>
+                    <option value="Eucalyptus grandis">Eucalyptus grandis</option>
+                    <option value="Eucalyptus curtisii">Eucalyptus curtisii</option>
+                    <option value="Corymbia maculata">Corymbia maculata</option>
+                    <option value="Eucalyptus crebra">Eucalyptus crebra</option>
+                    <option value="Angophora leiocarpa">Angophora leiocarpa</option>
+                    <option value="Eucalyptus acmeniodes">Eucalyptus acmeniodes</option>
+                    <option value="Corymbia henryi">Corymbia henryi</option>
+                    <option value="Eucalyptus melanophloia">Eucalyptus melanophloia</option>
+                    <option value="Corymbia tessellaris">Corymbia tessellaris</option>
+                    <option value="Eucalyptus major">Eucalyptus major</option>
+                    <option value="Casuarina glauca">Casuarina glauca</option>
+                    <option value="Acacia concurrens">Acacia concurrens</option>
+                    <option value="Eucalyptus eugenioides">Eucalyptus eugenioides</option>
+                    <option value="Ficus sp.">Ficus sp.</option>
+                    <option value="Glochidion ferdinandi">Glochidion ferdinandi</option>
+                    <option value="Ficus benjamina">Ficus benjamina</option>
+                    <option value="Ficus watkinsiana">Ficus watkinsiana</option>
+                    <option value="Ficus macrophylla">Ficus macrophylla</option>
+                    <option value="Melaleuca quinquenervia">Melaleuca quinquenervia</option>
+                    <option value="Lophostemon">Lophostemon</option>
+                    <option value="Eucalyptus pilularis">Eucalyptus pilularis</option>
+                    <option value="Eucalyptus intermedia">Eucalyptus intermedia</option>
+                    <option value="Melaleuca leucadendra">Melaleuca leucadendra</option>
+                    <option value="Jacaranda">Jacaranda</option>
+                    <option value="Eucalyptus punctata">Eucalyptus punctata</option>
+                  </select>
+                </div>
               </div>
             </div>
 
@@ -169,12 +144,11 @@
               <div class="message-header">
                 <p>Result</p>
               </div>
-              <div id="message-text" class="message-body">
-              </div>
+              <div id="message-text" class="message-body"></div>
+              <div id="response-phrases" class="message-body"></div>
             </article>
             <p>
-              <i>Photo by <a href="https://unsplash.com/@jwwhitt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jordan Whitt</a> on <a href="https://unsplash.com/s/photos/koala?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>.</i>
-              <i>The <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/Personalizer/__init__.py">Source Code</a> is open source and licensed under MIT. 
+              <i>The <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/TextAnalytics/__init__.py">Source Code</a> is open source and licensed under MIT. 
                 <a href="https://www.ala.org.au/terms-of-use/">Data</a> from the Atlas of Living Australia, distributed with attribution under <a href="https://creativecommons.org/licenses/by/3.0/au/deed.en">Attribution 3.0 Australia (CC BY 3.0 AU)</a>. </i>
             </p>
 
@@ -248,14 +222,13 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             <script>
               function verify() {
                 document.getElementById("message-box").style.display = 'none';
-
-                var height_of_koala = parseInt(document.getElementById("height_of_koala").value);
-                var height_of_tree = parseInt(document.getElementById("height_of_tree").value);
+                document.getElementById("response-phrases").innerHTML = '';
+                var species = document.getElementById("species").value;
 
                 var xhr = new XMLHttpRequest();
                 xhr.open(
                   "GET",
-                  "https://white-pebble-0101a6a10.azurestaticapps.net/api/AnomalyDetection?height_of_koala="+height_of_koala+"&height_of_tree="+height_of_tree,
+                  "https://white-pebble-0101a6a10.azurestaticapps.net/api/TextAnalytics?species="+species,
                   true
                 );
                 xhr.send();
@@ -273,7 +246,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                     document.getElementById("message-text").innerText = this.responseText;
                   } else {
                     document.getElementById('message-box').classList.add('is-success');
-                    document.getElementById("message-text").innerText = this.responseText;
+                    var result = JSON.parse(this.responseText);
+                    document.getElementById("message-text").innerText = result.text;
+                    for (var i = 0 ; i < result.key_phrases.length() ; i ++){
+                      document.getElementById("response-phrases").innerHTML += `<span class="tag is-primary">${result.key_phrases[i]}</span>`;
+                    }
                   }
                 };
               }
