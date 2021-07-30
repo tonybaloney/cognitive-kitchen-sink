@@ -234,6 +234,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                     for (var i = 0 ; i < result.key_phrases.length ; i ++){
                       t = t.replace(result.key_phrases[i], `<span class="tag is-primary">${result.key_phrases[i]}</span>`);
                     }
+
+                    t += `<br/><a class="button" href="${result.link}">More Information</a>`
                     document.getElementById("message-text").innerHTML = t;
                   }
                 };

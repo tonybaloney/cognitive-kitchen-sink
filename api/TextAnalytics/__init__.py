@@ -42,6 +42,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     
     return func.HttpResponse(
-            json.dumps({"text": plant_description, "key_phrases": results}),
+            json.dumps({"text": plant_description, "key_phrases": results, "link": "https://bie.ala.org.au/species/https://id.biodiversity.org.au/node/apni/{0}#".format(plants[species]['id'])}),
             status_code=200
         ) 
