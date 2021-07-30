@@ -2,11 +2,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name":"Train personalizer",
+            "type":"python",
+            "request":"launch",
+            "cwd":"${workspaceFolder}/api",
+            "program":"${workspaceFolder}/api/Personalizer/__init__.py",
+            "console":"integratedTerminal"
+        },
+        {
             "name": "Attach to Python Functions",
             "type": "python",
             "request": "attach",
             "port": 9091,
             "preLaunchTask": "func: host start",
         },
+        
     ]
 }
