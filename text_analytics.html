@@ -230,10 +230,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                   } else {
                     document.getElementById('message-box').classList.add('is-success');
                     var result = JSON.parse(this.responseText);
-                    document.getElementById("message-text").innerText = result.text;
+                    var t = result.text;
                     for (var i = 0 ; i < result.key_phrases.length ; i ++){
-                      document.getElementById("message-text").innerHTML.replace(result.key_phrases[i], `<span class="tag is-primary">${result.key_phrases[i]}</span>`);
+                      t = t.replace(result.key_phrases[i], `<span class="tag is-primary">${result.key_phrases[i]}</span>`);
                     }
+                    document.getElementById("message-text").innerHTML = t;
                   }
                 };
               }
