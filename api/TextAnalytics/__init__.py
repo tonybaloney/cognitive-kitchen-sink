@@ -6,7 +6,7 @@ import json
 from ..utils import debuggable
 
 
-@debuggable
+@debuggable()
 def main(req: func.HttpRequest) -> func.HttpResponse: 
     species = req.params['species']
     with open('data/plants.json') as plants_index:

@@ -53,7 +53,6 @@ def get_user_preference():
     return res
 
 
-@debuggable(default=True)
 def main(req: func.HttpRequest) -> func.HttpResponse:
     client = PersonalizerClient(os.environ['PERSONALIZER_ENDPOINT'], CognitiveServicesCredentials(os.environ['PERSONALIZER_KEY']))
 
