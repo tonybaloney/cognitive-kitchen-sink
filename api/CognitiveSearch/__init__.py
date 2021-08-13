@@ -2,7 +2,7 @@ import requests
 import azure.functions as func
 import os
 from ..utils import debuggable
-
+import json
 
 @debuggable()
 def main(req: func.HttpRequest) -> func.HttpResponse: 
@@ -15,7 +15,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         "queryType": "semantic",
         "queryLanguage": "en-us",
         "search": req.params['question'],  
-        "top": 1
+        "top": 3
     }
     query_headers = {
         "api-key": key,
@@ -24,5 +24,5 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     response = requests.post(f'{endpoint}indexes/{index}/docs/search?api-version=2020-06-30-Preview', json=query, headers=query_headers)
     if not response.ok:
         return func.HttpResponse(body='search api error', status_code=500)
-    
-    return func.HttpResponse(response.json()["@search.answers"], status_code=200)
+    results = response.json().get("@search.answers", [])
+    return func.HttpResponse(json.dumps(results), status_code=200)
