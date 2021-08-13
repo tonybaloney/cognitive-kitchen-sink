@@ -56,17 +56,18 @@
     <div class="container column is-10">
         <div class="section">
             <h1 class="title">
-                Text Analytics
+                Cognitive Search (Preview)
             </h1>
 
             <div class="columns">
               <div class="column">
                 <p>
-                    To aid in our research of Koala habitats, we've seen a dataset that captured which species of tree the koala were spotted in. 
-                    This data was then given to the Atlas of Living Australia as a species index and the APNI data was returned. After pulling a text description of each tree species from Wikipedia,
-                    this demonstration will parse the text description from Wikipedia and identify key phrases. These phrases can be grouped and indexed for further ML work.
+                    Whilst researching the Koala habitats, its useful to gain a better knowledge of the Flora that Koala are found in.
+                    Using the Text Analytics API, we've already extracted key terms and used a Python script to pull data on the major plant species.
+                    Combining this with information from the Atlas of Living Australia, we have a document catalogue on the Flora. You can use the new Cognitive Search to 
+                    ask questions and the Cognitive API will answer based on the document library.
                 </p>
-                <p>Select a plant species to see the information from Wikipedia and some key phrases:</p>
+                <p>Write a question below on the plants in the plant corpus:</p>
 
             <div class="field">
               <label class="label">Question</label>
@@ -91,7 +92,7 @@
               <div id="message-text" class="message-body"></div>
             </article>
             <p>
-              <i>The <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/TextAnalytics/__init__.py">Source Code</a> is open source and licensed under MIT. 
+              <i>The <a href="https://github.com/tonybaloney/cognitive-kitchen-sink/blob/main/api/CognitiveSearch/__init__.py">Source Code</a> is open source and licensed under MIT. 
                 <a href="https://www.ala.org.au/terms-of-use/">Data</a> from the Atlas of Living Australia, distributed with attribution under <a href="https://creativecommons.org/licenses/by/3.0/au/deed.en">Attribution 3.0 Australia (CC BY 3.0 AU)</a>. </i>
             </p>
 
@@ -99,53 +100,34 @@
           <div class="section">
               <h2 class="title">Azure Functions Source Code</h2>
               <pre><code class="language-python">
-import os
-from azure.core.credentials import AzureKeyCredential
-from azure.ai.textanalytics import TextAnalyticsClient
+import requests
 import azure.functions as func
-import json
+import os
 from ..utils import debuggable
-
+import json
 
 @debuggable()
 def main(req: func.HttpRequest) -> func.HttpResponse: 
-    species = req.params['species']
-    with open('data/plants.json') as plants_index:
-        plants = json.load(plants_index)
-
-    if species not in plants:
-        return func.HttpResponse(
-            "Plant not recognized",
-            status_code=400
-        ) 
-
-    plant_info = os.path.join('data', 'apni', plants[species]['id'] + '.txt')
-    if not os.path.exists(plant_info):
-        return func.HttpResponse(
-            "No information on this plant",
-            status_code=400
-        )
-
-    with open(plant_info) as p:
-        plant_description = p.read()
-
-    endpoint = os.environ["TEXT_ANALYTICS_ENDPOINT"]
-    key = os.environ["TEXT_ANALYTICS_KEY"]
-
-    text_analytics_client = TextAnalyticsClient(endpoint=endpoint, credential=AzureKeyCredential(key))
-
-    articles = [plant_description]
-    results = []
-    result = text_analytics_client.extract_key_phrases(articles)
-    for _, doc in enumerate(result):
-        if not doc.is_error:
-            results.extend(doc.key_phrases)
-
-    
-    return func.HttpResponse(
-            json.dumps({"text": plant_description, "key_phrases": results, "link": "https://bie.ala.org.au/species/https://id.biodiversity.org.au/node/apni/{0}#".format(plants[species]['id'])}),
-            status_code=200
-        ) 
+    endpoint = os.getenv('COGNITIVE_SEARCH_ENDPOINT')
+    index = os.getenv('COGNITIVE_SEARCH_INDEX')
+    key = os.getenv('COGNITIVE_SEARCH_KEY')
+    query = {  
+        "answers": "extractive", 
+        "featuresMode" : "enabled",
+        "queryType": "semantic",
+        "queryLanguage": "en-us",
+        "search": req.params['question'],  
+        "top": 3
+    }
+    query_headers = {
+        "api-key": key,
+        "Content-Type": 'application/json'
+    }
+    response = requests.post(f'{endpoint}indexes/{index}/docs/search?api-version=2020-06-30-Preview', json=query, headers=query_headers)
+    if not response.ok:
+        return func.HttpResponse(body='search api error', status_code=500)
+    results = response.json().get("@search.answers", [])
+    return func.HttpResponse(json.dumps(results), status_code=200)
               </code></pre>
               </div>
           </div>
@@ -178,8 +160,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                     var result = JSON.parse(this.responseText);
                     for (var i = 0 ; i < result.length ; i ++ ){
                       const newDiv = document.createElement("div");
-                      newDiv.classList.add('content is-medium');
-                      newDiv.innerHTML = result[0]['highlights'];
+                      newDiv.classList.add('content');
+                      newDiv.classList.add('is-medium');
+                      const p = document.createElement("p");
+                      p.innerHTML = result[0]['highlights'];
+                      newDiv.appendChild(p);
                       document.getElementById("message-text").appendChild(newDiv);
                     }
                     document.getElementById("message-text").innerHTML = t;
