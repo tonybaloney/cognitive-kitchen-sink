@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Azure Cognitive Services - Text Analytics</title>
+    <title>Azure Cognitive Services - Cognitive Search</title>
     <link rel="stylesheet" href="/res/css/bulma.min.css">
     <link rel="stylesheet" href="/res/fa/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/default.min.css">
@@ -69,72 +69,14 @@
                 <p>Select a plant species to see the information from Wikipedia and some key phrases:</p>
 
             <div class="field">
-              <label class="label">Species</label>
+              <label class="label">Question</label>
               <div class="control">
-                <div class="select">
-                  <select id='species'>
-                    <option value="Eucalyptus carnea">Eucalyptus carnea</option>
-                    <option value="Eucalyptus microcorys">Eucalyptus microcorys</option>
-                    <option value="Alphitonia excelsa">Alphitonia excelsa</option>
-                    <option value="Melaleuca quinquenervia">Melaleuca quinquenervia</option>
-                    <option value="Eucalyptus tereticornis">Eucalyptus tereticornis</option>
-                    <option value="Eucalyptus siderophloia">Eucalyptus siderophloia</option>
-                    <option value="Eucalyptus racemosa">Eucalyptus racemosa</option>
-                    <option value="Corymbia trachyphloia">Corymbia trachyphloia</option>
-                    <option value="Eucalyptus littoralis">Eucalyptus littoralis</option>
-                    <option value="Eucalyptus seeana">Eucalyptus seeana</option>
-                    <option value="Angophora">Angophora</option>
-                    <option value="Angophora woodsiana">Angophora woodsiana</option>
-                    <option value="Lophostemon suaveolens">Lophostemon suaveolens</option>
-                    <option value="Eucalyptus propinqua">Eucalyptus propinqua</option>
-                    <option value="Lophostemon confertus">Lophostemon confertus</option>
-                    <option value="Eucalyptus trachyphloia">Eucalyptus trachyphloia</option>
-                    <option value="Corymbia intermedia">Corymbia intermedia</option>
-                    <option value="Eucalyptus tindaliae">Eucalyptus tindaliae</option>
-                    <option value="Eucalyptus moluccana">Eucalyptus moluccana</option>
-                    <option value="Corymbia citriodora">Corymbia citriodora</option>
-                    <option value="Eucalyptus resinifera">Eucalyptus resinifera</option>
-                    <option value="Eucalyptus">Eucalyptus</option>
-                    <option value="Cinnamomum camphora">Cinnamomum camphora</option>
-                    <option value="Eucalyptus robusta">Eucalyptus robusta</option>
-                    <option value="Eucalyptus fibrosa">Eucalyptus fibrosa</option>
-                    <option value="Eucalyptus maculata">Eucalyptus maculata</option>
-                    <option value="Eucalyptus dunnii">Eucalyptus dunnii</option>
-                    <option value="Grevillea robusta">Grevillea robusta</option>
-                    <option value="Corymbia Callistemon">Corymbia Callistemon</option>
-                    <option value="Corymbia torelliana ">Corymbia torelliana </option>
-                    <option value="Eucalyptus grandis">Eucalyptus grandis</option>
-                    <option value="Eucalyptus curtisii">Eucalyptus curtisii</option>
-                    <option value="Corymbia maculata">Corymbia maculata</option>
-                    <option value="Eucalyptus crebra">Eucalyptus crebra</option>
-                    <option value="Angophora leiocarpa">Angophora leiocarpa</option>
-                    <option value="Eucalyptus acmeniodes">Eucalyptus acmeniodes</option>
-                    <option value="Corymbia henryi">Corymbia henryi</option>
-                    <option value="Eucalyptus melanophloia">Eucalyptus melanophloia</option>
-                    <option value="Corymbia tessellaris">Corymbia tessellaris</option>
-                    <option value="Eucalyptus major">Eucalyptus major</option>
-                    <option value="Casuarina glauca">Casuarina glauca</option>
-                    <option value="Acacia concurrens">Acacia concurrens</option>
-                    <option value="Eucalyptus eugenioides">Eucalyptus eugenioides</option>
-                    <option value="Ficus sp.">Ficus sp.</option>
-                    <option value="Glochidion ferdinandi">Glochidion ferdinandi</option>
-                    <option value="Ficus benjamina">Ficus benjamina</option>
-                    <option value="Ficus watkinsiana">Ficus watkinsiana</option>
-                    <option value="Ficus macrophylla">Ficus macrophylla</option>
-                    <option value="Melaleuca quinquenervia">Melaleuca quinquenervia</option>
-                    <option value="Lophostemon">Lophostemon</option>
-                    <option value="Eucalyptus pilularis">Eucalyptus pilularis</option>
-                    <option value="Eucalyptus intermedia">Eucalyptus intermedia</option>
-                    <option value="Melaleuca leucadendra">Melaleuca leucadendra</option>
-                    <option value="Jacaranda">Jacaranda</option>
-                    <option value="Eucalyptus punctata">Eucalyptus punctata</option>
-                  </select>
-                </div>
+                  <input type="text" class="input is-medium" id="question" name="question" value="How tall does Corymbia henryi grow?"/>
               </div>
             </div>
 
             <div class="control">
-              <button id="submit-button" class="button is-primary" onclick="verify()">Submit</button>
+              <button id="submit-button" class="button is-primary" onclick="search()">Search</button>
             </div>
             </div>
               <div class="column is-one-third"><figure class="image is-4by3">
@@ -208,14 +150,14 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
               </div>
           </div>
             <script>
-              function verify() {
+              function search() {
                 document.getElementById("message-box").style.display = 'none';
-                var species = document.getElementById("species").value;
+                var question = document.getElementById("question").value;
 
                 var xhr = new XMLHttpRequest();
                 xhr.open(
                   "GET",
-                  "https://white-pebble-0101a6a10.azurestaticapps.net/api/TextAnalytics?species="+species,
+                  "https://white-pebble-0101a6a10.azurestaticapps.net/api/CognitiveSearch?question="+encodeURI(question),
                   true
                 );
                 xhr.send();
@@ -234,13 +176,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                   } else {
                     document.getElementById('message-box').classList.add('is-success');
                     var result = JSON.parse(this.responseText);
-                    var t = result.text;
-                    for (var i = 0 ; i < result.key_phrases.length ; i ++){
-                      t = t.replaceAll(result.key_phrases[i], `%^%${result.key_phrases[i]}%_%`);
+                    for (var i = 0 ; i < result.length ; i ++ ){
+                      const newDiv = document.createElement("div");
+                      newDiv.classList.add('content is-medium');
+                      newDiv.innerHTML = result[0]['highlights'];
+                      document.getElementById("message-text").appendChild(newDiv);
                     }
-                    t = t.replaceAll("%^%", `<span class="tag is-primary">`);
-                    t = t.replaceAll("%_%", `</span>`);
-                    t += `<br/><a class="button" href="${result.link}">More Information</a>`
                     document.getElementById("message-text").innerHTML = t;
                   }
                 };
