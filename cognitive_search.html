@@ -10,7 +10,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
     <!-- and it's easy to individually load additional languages -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/python.min.js"></script>
-    
+    <style>
+      .search-result em {
+        text-decoration: underline;
+        font-weight: bold;
+        color: black;
+      }
+    </style>
   </head>
   <body>
   <section class="main-content columns is-fullheight">
@@ -163,11 +169,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                       newDiv.classList.add('content');
                       newDiv.classList.add('is-medium');
                       const p = document.createElement("p");
+                      p.classList.add('search-result');
                       p.innerHTML = result[0]['highlights'];
                       newDiv.appendChild(p);
                       document.getElementById("message-text").appendChild(newDiv);
                     }
-                    document.getElementById("message-text").innerHTML = t;
                   }
                 };
               }
