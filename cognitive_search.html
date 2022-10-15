@@ -121,8 +121,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         "answers": "extractive", 
         "featuresMode" : "enabled",
         "queryType": "semantic",
-        "queryLanguage": "en-us",
-        "search": req.params['question'],  
+        "queryLanguage": "ja",
+        "search": req.aj['question'],  
         "top": 3
     }
     query_headers = {
