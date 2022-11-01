@@ -13,7 +13,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         "answers": "extractive", 
         "featuresMode" : "enabled",
         "queryType": "semantic",
-        "queryLanguage": "ja",
+        "queryLanguage": req.params.get('language', 'en'),
         "search": req.params['question'],  
         "top": 3
     }
